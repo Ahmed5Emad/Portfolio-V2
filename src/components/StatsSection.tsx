@@ -12,10 +12,10 @@ export function StatsSection() {
   const [hasAnimated, setHasAnimated] = useState(false);
   
   const stats: Stat[] = [
-    { icon: <Briefcase className="w-8 h-8" />, value: 15, label: 'Projects Completed', suffix: '+' },
-    { icon: <Users className="w-8 h-8" />, value: 10, label: 'Happy Clients', suffix: '+' },
-    { icon: <Award className="w-8 h-8" />, value: 3, label: 'Years Experience', suffix: '+' },
-    { icon: <Coffee className="w-8 h-8" />, value: 1000, label: 'Cups of Coffee', suffix: '+' },
+    { icon: <Briefcase className="w-8 h-8" />, value: 18, label: 'Projects Completed', suffix: '+' },
+    { icon: <Users className="w-8 h-8" />, value: 5, label: 'Happy Clients', suffix: '+' },
+    { icon: <Award className="w-8 h-8" />, value: 2, label: 'Years Experience', suffix: '+' },
+    { icon: <Coffee className="w-8 h-8" />, value: 500, label: 'Cups of Coffee', suffix: '+' },
   ];
 
   useEffect(() => {

@@ -62,7 +62,7 @@ export function ExperienceSection() {
             <Briefcase className="w-4 h-4" />
             <span className="text-sm">Career Journey</span>
           </div>
-          <h2 className="text-orange-500 mb-4">Experience</h2>
+          <h2 className="text-orange-500 mb-4 text-2xl">Experience</h2>
           <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
             My professional journey in design and development
           </p>

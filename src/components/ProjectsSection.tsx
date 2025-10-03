@@ -53,7 +53,7 @@ export function ProjectsSection() {
             <Sparkles className="w-4 h-4" />
             <span className="text-sm">Featured Work</span>
           </div>
-          <h2 className="text-orange-500 mb-4">Projects</h2>
+          <h2 className="text-orange-500 mb-4 text-2xl">Projects</h2>
           <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
             A collection of my recent design and development work
           </p>

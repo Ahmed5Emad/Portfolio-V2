@@ -33,7 +33,7 @@ export function ContactSection() {
             <Send className="w-4 h-4" />
             <span className="text-sm">Get In Touch</span>
           </div>
-          <h2 className="text-orange-500 mb-4">Contact</h2>
+          <h2 className="text-orange-500 mb-4 text-2xl">Contact</h2>
           <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
             If you have a project in mind or would like to discuss how I can help you achieve your goals, please don't hesitate to contact me. I'm always excited to explore new opportunities and collaborate with like-minded individuals.
           </p>

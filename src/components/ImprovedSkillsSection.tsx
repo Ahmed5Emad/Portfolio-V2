@@ -73,7 +73,7 @@ export function ImprovedSkillsSection() {
   return (
     <section id="skills" className="min-h-screen flex items-center justify-center px-6 py-20">
       <div className="max-w-6xl w-full">
-        <h2 className="text-center text-orange-500 mb-4">Skills & Expertise</h2>
+        <h2 className="text-center text-orange-500 mb-4 text-2xl">Skills & Expertise</h2>
         <p className="text-center text-gray-600 dark:text-white/70 mb-12 max-w-2xl mx-auto">
           A comprehensive overview of my technical skills and design capabilities
         </p>

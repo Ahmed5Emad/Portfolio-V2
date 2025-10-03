@@ -31,7 +31,7 @@ export function ProcessSection() {
   return (
     <section className="py-20 px-6 bg-gradient-to-b from-white via-gray-50 to-white dark:from-[#121212] dark:via-[#1a1a1a] dark:to-[#121212]">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-center text-orange-500 mb-4">My Process</h2>
+        <h2 className="text-center text-orange-500 mb-4 text-2xl">My Process</h2>
         <p className="text-center text-gray-600 dark:text-white/70 mb-16 max-w-2xl mx-auto">
           A proven workflow that delivers exceptional results from concept to launch
         </p>
