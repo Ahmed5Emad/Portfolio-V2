@@ -11,7 +11,7 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'skills', 'projects', 'contact'];
+      const sections = ['about', 'skills', 'experience' , 'projects', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
