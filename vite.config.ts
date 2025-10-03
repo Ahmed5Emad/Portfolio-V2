@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 
 export default defineConfig({
-  base: '/<repo-name>/', // 👈 replace with your actual repo name
+  base: '/Portfolio-V2/', // ✅ Fixed: GitHub Pages repo name
   plugins: [react()],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -51,7 +51,7 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
-    outDir: 'build', // 👈 keep this, since your workflow uses build/
+    outDir: 'build', // ✅ stays the same, matches your workflow
   },
   server: {
     port: 3000,
