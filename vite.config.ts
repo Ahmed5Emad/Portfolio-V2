@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 
 export default defineConfig({
-  base: '/Portfolio-V2/', // ✅ Fixed: GitHub Pages repo name
+  base: '/Portfolio-V2/', // ✅ GitHub Pages repo name
   plugins: [react()],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -47,11 +47,13 @@ export default defineConfig({
       '@radix-ui/react-alert-dialog@1.1.6': '@radix-ui/react-alert-dialog',
       '@radix-ui/react-accordion@1.2.3': '@radix-ui/react-accordion',
       '@': path.resolve(__dirname, './src'),
+      '@images': path.resolve(__dirname, './public/images'),
     },
   },
   build: {
     target: 'esnext',
-    outDir: 'build', // ✅ stays the same, matches your workflow
+    outDir: 'build', // ✅ matches your GitHub workflow
+    assetsDir: 'assets', // ✅ ensures assets go into /assets
   },
   server: {
     port: 3000,
