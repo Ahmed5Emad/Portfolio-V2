@@ -42,7 +42,7 @@ export function AboutSection() {
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-pink-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
             <div className="relative w-[400px] h-[400px] rounded-2xl overflow-hidden bg-[#1e1e1e] p-6">
               <ImageWithFallback
-                src="public/images/me.jpg"
+                src="images/me.jpg"
                 alt="Ahmed Emad"
                 className="w-full h-full object-cover rounded-lg"
               />
