@@ -53,8 +53,8 @@ export function ProjectsSection() {
             <Sparkles className="w-4 h-4" />
             <span className="text-sm">Featured Work</span>
           </div>
-          <h2 className="text-orange-500 mb-4 text-2xl">Projects</h2>
-          <p className="text-white/70 max-w-2xl mx-auto">
+          <h2 className="text-orange-500 mb-4">Projects</h2>
+          <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
             A collection of my recent design and development work
           </p>
         </div>
@@ -69,15 +69,15 @@ export function ProjectsSection() {
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-pink-500 rounded-2xl blur opacity-0 group-hover:opacity-25 transition duration-1000"></div>
               
-              <div className="relative h-full rounded-2xl overflow-hidden bg-[#1e1e1e] border border-white/10 group-hover:border-orange-500/50 transition-all duration-300">
+              <div className="relative h-full rounded-2xl overflow-hidden bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-white/10 group-hover:border-orange-500/50 transition-all duration-300 shadow-sm">
                 {/* Image Container */}
-                <div className="relative  overflow-hidden bg-gradient-to-br from-orange-500/5 to-transparent">
+                <div className="relative overflow-hidden bg-gradient-to-br from-orange-500/5 to-transparent">
                   <ImageWithFallback
                     src={project.images[0]}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#1e1e1e] via-transparent to-transparent" />
                 </div>
 
                 {/* Content */}
@@ -90,11 +90,11 @@ export function ProjectsSection() {
                     ))}
                   </div>
 
-                  <h3 className="text-white group-hover:text-orange-500 transition-colors">
+                  <h3 className="text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors">
                     {project.title}
                   </h3>
                   
-                  <p className="text-white/70 text-sm leading-relaxed line-clamp-3">
+                  <p className="text-gray-600 dark:text-white/70 text-sm leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
 

@@ -44,8 +44,8 @@ export function TestimonialsSection() {
   return (
     <section className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-20 right-20 w-72 h-72 bg-orange-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-20 right-20 w-72 h-72 bg-orange-500/5 dark:bg-orange-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-pink-500/5 dark:bg-pink-500/10 rounded-full blur-3xl" />
       
       <div className="max-w-6xl w-full relative z-10">
         <div className="text-center mb-16">
@@ -53,8 +53,8 @@ export function TestimonialsSection() {
             <Quote className="w-4 h-4" />
             <span className="text-sm">What Clients Say</span>
           </div>
-          <h2 className="text-orange-500 mb-4 text-2xl">Testimonials</h2>
-          <p className="text-white/70 max-w-2xl mx-auto">
+          <h2 className="text-orange-500 mb-4">Testimonials</h2>
+          <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
             Don't just take my word for it - here's what some of my clients have to say
           </p>
         </div>
@@ -70,8 +70,8 @@ export function TestimonialsSection() {
                 activeIndex === index ? 'opacity-25' : 'opacity-0'
               }`}></div>
               
-              <div className={`relative h-full p-8 rounded-2xl bg-[#1e1e1e] border transition-all duration-300 ${
-                activeIndex === index ? 'border-orange-500/50 scale-105' : 'border-white/10'
+              <div className={`relative h-full p-8 rounded-2xl bg-white dark:bg-[#1e1e1e] border transition-all duration-300 shadow-sm ${
+                activeIndex === index ? 'border-orange-500/50 scale-105' : 'border-gray-200 dark:border-white/10'
               }`}>
                 <Quote className="w-10 h-10 text-orange-500/20 mb-4" />
                 
@@ -81,11 +81,11 @@ export function TestimonialsSection() {
                   ))}
                 </div>
 
-                <p className="text-white/80 mb-6 italic leading-relaxed">
+                <p className="text-gray-700 dark:text-white/80 mb-6 italic leading-relaxed">
                   "{testimonial.content}"
                 </p>
 
-                <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+                <div className="flex items-center gap-4 pt-4 border-t border-gray-200 dark:border-white/10">
                   <div className="w-12 h-12 rounded-full overflow-hidden bg-orange-500/10">
                     <ImageWithFallback
                       src={testimonial.image}
@@ -94,8 +94,8 @@ export function TestimonialsSection() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-white">{testimonial.name}</h4>
-                    <p className="text-sm text-white/60">{testimonial.role} at {testimonial.company}</p>
+                    <h4 className="text-gray-900 dark:text-white">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-600 dark:text-white/60">{testimonial.role} at {testimonial.company}</p>
                   </div>
                 </div>
               </div>

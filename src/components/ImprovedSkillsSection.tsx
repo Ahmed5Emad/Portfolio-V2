@@ -73,8 +73,8 @@ export function ImprovedSkillsSection() {
   return (
     <section id="skills" className="min-h-screen flex items-center justify-center px-6 py-20">
       <div className="max-w-6xl w-full">
-        <h2 className="text-center text-orange-500 mb-4 text-2xl">Skills & Expertise</h2>
-        <p className="text-center text-white/70 mb-12 max-w-2xl mx-auto">
+        <h2 className="text-center text-orange-500 mb-4">Skills & Expertise</h2>
+        <p className="text-center text-gray-600 dark:text-white/70 mb-12 max-w-2xl mx-auto">
           A comprehensive overview of my technical skills and design capabilities
         </p>
 
@@ -86,8 +86,8 @@ export function ImprovedSkillsSection() {
               onClick={() => setActiveTab(category.id)}
               className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 ${
                 activeTab === category.id
-                  ? 'bg-orange-500 text-white scale-105'
-                  : 'bg-[#1e1e1e] text-white/70 hover:text-white hover:bg-[#252525]'
+                  ? 'bg-orange-500 text-white scale-105 shadow-lg'
+                  : 'bg-gray-100 dark:bg-[#1e1e1e] text-gray-600 dark:text-white/70 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-[#252525]'
               }`}
             >
               {category.icon}
@@ -106,9 +106,9 @@ export function ImprovedSkillsSection() {
               onMouseLeave={() => setHoveredSkill(null)}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="p-6 rounded-2xl bg-[#1e1e1e] border border-white/10 hover:border-orange-500/50 transition-all duration-300">
+              <div className="p-6 rounded-2xl bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-white/10 hover:border-orange-500/50 transition-all duration-300 shadow-sm">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-white">{skill.name}</h3>
+                  <h3 className="text-gray-900 dark:text-white">{skill.name}</h3>
                   <span className={`text-sm px-3 py-1 rounded-full bg-gradient-to-r ${skill.color} text-white transition-all duration-300 ${
                     hoveredSkill === skill.name ? 'scale-110' : ''
                   }`}>
@@ -117,7 +117,7 @@ export function ImprovedSkillsSection() {
                 </div>
                 
                 {/* Custom Progress Bar */}
-                <div className="relative h-3 bg-white/10 rounded-full overflow-hidden">
+                <div className="relative h-3 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden">
                   <div
                     className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out`}
                     style={{ 
@@ -140,7 +140,7 @@ export function ImprovedSkillsSection() {
 
         {/* Skill Description */}
         <div className="mt-12 p-8 rounded-2xl bg-gradient-to-br from-orange-500/10 to-transparent border border-orange-500/20">
-          <p className="text-white/90 text-center">
+          <p className="text-gray-700 dark:text-white/90 text-center">
             {activeTab === 'design' && "Expert in modern design tools with a focus on creating intuitive, user-centered interfaces that drive engagement and conversion."}
             {activeTab === 'frontend' && "Proficient in modern web technologies, building responsive and performant applications with clean, maintainable code."}
             {activeTab === 'workflow' && "Strong foundation in UX principles and design thinking, ensuring every project is backed by research and user insights."}

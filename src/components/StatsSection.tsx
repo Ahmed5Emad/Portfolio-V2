@@ -12,9 +12,9 @@ export function StatsSection() {
   const [hasAnimated, setHasAnimated] = useState(false);
   
   const stats: Stat[] = [
-    { icon: <Briefcase className="w-8 h-8" />, value: 18, label: 'Projects Completed', suffix: '+' },
-    { icon: <Users className="w-8 h-8" />, value: 6, label: 'Happy Clients', suffix: '+' },
-    { icon: <Award className="w-8 h-8" />, value: 2, label: 'Years Experience', suffix: '+' },
+    { icon: <Briefcase className="w-8 h-8" />, value: 15, label: 'Projects Completed', suffix: '+' },
+    { icon: <Users className="w-8 h-8" />, value: 10, label: 'Happy Clients', suffix: '+' },
+    { icon: <Award className="w-8 h-8" />, value: 3, label: 'Years Experience', suffix: '+' },
     { icon: <Coffee className="w-8 h-8" />, value: 1000, label: 'Cups of Coffee', suffix: '+' },
   ];
 
@@ -41,7 +41,7 @@ export function StatsSection() {
   }, [hasAnimated]);
 
   return (
-    <section id="stats-section" className="py-20 px-6 bg-gradient-to-b from-[#121212] via-[#1a1a1a] to-[#121212]">
+    <section id="stats-section" className="py-20 px-6 bg-gradient-to-b from-white via-gray-50 to-white dark:from-[#121212] dark:via-[#1a1a1a] dark:to-[#121212]">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
@@ -79,17 +79,17 @@ function StatCard({ icon, value, label, suffix = '', delay, shouldAnimate }: Sta
 
   return (
     <div 
-      className="flex flex-col items-center justify-center p-8 rounded-2xl bg-[#1e1e1e] border border-orange-500/20 hover:border-orange-500/50 transition-all duration-300 hover:scale-105"
+      className="flex flex-col items-center justify-center p-8 rounded-2xl bg-white dark:bg-[#1e1e1e] border border-orange-500/20 hover:border-orange-500/50 transition-all duration-300 hover:scale-105 shadow-sm"
       style={{ animationDelay: `${delay}ms` }}
     >
       <div className="text-orange-500 mb-4">
         {icon}
       </div>
-      <div className="text-white mb-2">
+      <div className="text-gray-900 dark:text-white mb-2">
         <span className="text-4xl font-bold">{shouldAnimate ? count : 0}</span>
         <span className="text-orange-500">{suffix}</span>
       </div>
-      <p className="text-white/70 text-center text-sm">{label}</p>
+      <p className="text-gray-600 dark:text-white/70 text-center text-sm">{label}</p>
     </div>
   );
 }

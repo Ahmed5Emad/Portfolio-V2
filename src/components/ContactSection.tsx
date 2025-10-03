@@ -33,8 +33,8 @@ export function ContactSection() {
             <Send className="w-4 h-4" />
             <span className="text-sm">Get In Touch</span>
           </div>
-          <h2 className="text-orange-500 mb-4 text-2xl">Contact</h2>
-          <p className="text-white/70 max-w-2xl mx-auto">
+          <h2 className="text-orange-500 mb-4">Contact</h2>
+          <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
             If you have a project in mind or would like to discuss how I can help you achieve your goals, please don't hesitate to contact me. I'm always excited to explore new opportunities and collaborate with like-minded individuals.
           </p>
         </div>
@@ -50,13 +50,13 @@ export function ContactSection() {
             >
               <div className={`absolute -inset-1 bg-gradient-to-r ${contact.color} rounded-2xl blur opacity-0 group-hover:opacity-25 transition duration-1000`}></div>
               
-              <div className="relative flex flex-col items-center gap-4 p-6 rounded-2xl bg-[#1e1e1e] border border-white/10 group-hover:border-orange-500/50 transition-all duration-300">
+              <div className="relative flex flex-col items-center gap-4 p-6 rounded-2xl bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-white/10 group-hover:border-orange-500/50 transition-all duration-300 shadow-sm">
                 <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${contact.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform`}>
                   {contact.icon}
                 </div>
                 <div className="text-center">
-                  <p className="text-white/70 text-sm mb-1">{contact.label}</p>
-                  <p className="text-white group-hover:text-orange-500 transition-colors text-sm">{contact.value}</p>
+                  <p className="text-gray-600 dark:text-white/70 text-sm mb-1">{contact.label}</p>
+                  <p className="text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors text-sm">{contact.value}</p>
                 </div>
               </div>
             </a>
@@ -75,8 +75,8 @@ export function ContactSection() {
         </div>
 
         {/* Footer */}
-        <div className="mt-16 pt-8 border-t border-white/10 text-center">
-          <p className="text-white/50 text-sm">
+        <div className="mt-16 pt-8 border-t border-gray-200 dark:border-white/10 text-center">
+          <p className="text-gray-500 dark:text-white/50 text-sm">
             © {new Date().getFullYear()} Ahmed Emad. All rights reserved.
           </p>
         </div>
