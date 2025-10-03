@@ -48,7 +48,5 @@ Portfolio-V2/
 │   ├── App.tsx          # Main app component
 │   └── main.tsx         # Entry point
 ├── index.html           # Root HTML
-├── tailwind.config.js   # Tailwind setup
-├── tsconfig.json        # TypeScript configuration
 ├── vite.config.ts       # Vite configuration
 └── README.md            # Documentation
