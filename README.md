@@ -1,33 +1,54 @@
-# 🌐 Personal Portfolio – Ahmed Emad
+# 🌐 Portfolio V2 – Ahmed Emad
 
-Welcome to my personal portfolio repository!  
-I'm **Ahmed Emad**, a passionate **UI/UX Designer** and **Front-End Engineer** who crafts clean, functional, and visually engaging digital experiences.
+Welcome to my **second portfolio repository**!  
+This project is a complete redesign and rebuild of my personal portfolio, now powered by **React**, **TypeScript**, and **Vite** for a faster, scalable, and modern developer experience.
 
 ## 📌 Overview
 
-This is the **source code** for my online portfolio — a showcase of my skills, featured projects, design principles, and creative journey in the world of UI/UX and front-end development.
+This portfolio serves as:
+- A personal branding and showcase platform  
+- A collection of my **UI/UX design projects** and **front-end work**  
+- A gateway for **clients, collaborators, and recruiters** to reach me  
 
-It serves as:
-- A personal branding site
-- A portfolio of selected design and development works
-- A contact gateway for clients, collaborators, and recruiters
+> 🚀 **Live Demo:** [Portfolio V2](https://ahmed5emad.github.io/Portfolio-V2)  
+
+---
 
 ## 🛠️ Tech Stack
 
-- **HTML5** / **CSS3**
-- **React**
-- **TypeScript**
-- **Figma** – for design wireframes and mockups
-- **GitHub Pages** for deployment
+- ⚛️ **React 18** – Component-based UI  
+- 🟦 **TypeScript** – Strongly typed JavaScript  
+- ⚡ **Vite** – Next-gen build tool for fast development  
+- 🎨 **Tailwind CSS** – Utility-first styling   
+- 📦 **Lucide Icons** – Clean and modern icons  
+- ☁️ **GitHub Pages** – Deployment & hosting  
 
-> 💡 *Note: You can explore the live version [here](https://ahmed5emad.github.io/Portfolio/)*  
+---
 
-## 🖼️ Features
+## ✨ Features
 
-- 🎨 Responsive UI across all devices
-- 💡 Minimal, clean, and modern design
-- ⚡ Smooth animations and transitions
-- 🔍 SEO-friendly structure
-- 📬 Integrated contact section
-- 🧠 Optimized accessibility and usability
+- 📱 Fully **responsive design** (mobile-first)  
+- 🎨 Minimal & modern UI with consistent branding  
+- ⚡ Blazing fast performance with Vite + React   
+- 🎭 Smooth **animations & transitions**
+- 🔍 SEO-friendly meta tags & structure  
+- 📬 **Contact form** for easy communication  
 
+---
+
+## 📂 Project Structure
+
+```bash
+Portfolio-V2/
+├── public/              # Static assets
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── sections/        # Page sections (About, Projects, Contact, etc.)
+│   ├── assets/          # Images, icons, fonts
+│   ├── App.tsx          # Main app component
+│   └── main.tsx         # Entry point
+├── index.html           # Root HTML
+├── tailwind.config.js   # Tailwind setup
+├── tsconfig.json        # TypeScript configuration
+├── vite.config.ts       # Vite configuration
+└── README.md            # Documentation
