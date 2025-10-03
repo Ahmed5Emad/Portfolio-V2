@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Palette, Code, Layers, GitBranch } from 'lucide-react';
 import { Tabs } from './ui/tabs';
 import { Progress } from './ui/progress';
@@ -20,6 +20,7 @@ interface SkillCategory {
 export function ImprovedSkillsSection() {
   const [activeTab, setActiveTab] = useState('design');
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [animatedWidths, setAnimatedWidths] = useState<{ [key: string]: number }>({});
 
   const skillCategories: SkillCategory[] = [
     {
@@ -69,6 +70,20 @@ export function ImprovedSkillsSection() {
   ];
 
   const activeCategory = skillCategories.find(cat => cat.id === activeTab) || skillCategories[0];
+
+  useEffect(() => {
+    // Reset widths to 0 when tab changes, then animate to skill level
+    setAnimatedWidths({}); // Clear all animated widths
+    const timer = setTimeout(() => {
+      const newAnimatedWidths: { [key: string]: number } = {};
+      activeCategory.skills.forEach(skill => {
+        newAnimatedWidths[skill.name] = skill.level;
+      });
+      setAnimatedWidths(newAnimatedWidths);
+    }, 100); // Small delay to ensure reset is rendered before animation
+
+    return () => clearTimeout(timer);
+  }, [activeTab]);
 
   return (
     <section id="skills" className="min-h-screen flex items-center justify-center px-6 py-20">
@@ -121,7 +136,7 @@ export function ImprovedSkillsSection() {
                   <div
                     className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out`}
                     style={{ 
-                      width: `${skill.level}%`,
+                      width: `${animatedWidths[skill.name] || 0}%`,
                       transform: hoveredSkill === skill.name ? 'scaleY(1.2)' : 'scaleY(1)',
                     }}
                   />
