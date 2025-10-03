@@ -4,7 +4,7 @@ import { Download, MapPin, Github, Linkedin, Mail } from 'lucide-react';
 
 export function AboutSection() {
   const handleDownloadCV = () => {
-    const cvUrl = 'src/components/Files/ahmed-emad-cv.pdf'; // Place your CV file in the public folder
+    const cvUrl = '/Portfolio-V2/files/ahmed-emad-cv.pdf'; // CV file is now in public/files
     const link = document.createElement('a');
     link.href = cvUrl;
     link.download = 'Ahmed_Emad_CV.pdf';
