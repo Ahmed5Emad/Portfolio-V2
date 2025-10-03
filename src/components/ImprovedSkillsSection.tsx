@@ -80,7 +80,7 @@ export function ImprovedSkillsSection() {
         newAnimatedWidths[skill.name] = skill.level;
       });
       setAnimatedWidths(newAnimatedWidths);
-    }, 100); // Small delay to ensure reset is rendered before animation
+    }, 200); // Small delay to ensure reset is rendered before animation
 
     return () => clearTimeout(timer);
   }, [activeTab]);
@@ -134,7 +134,7 @@ export function ImprovedSkillsSection() {
                 {/* Custom Progress Bar */}
                 <div className="relative h-3 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden">
                   <div
-                    className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out`}
+                    className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-500 ease-out`}
                     style={{ 
                       width: `${animatedWidths[skill.name] || 0}%`,
                       transform: hoveredSkill === skill.name ? 'scaleY(1.2)' : 'scaleY(1)',
