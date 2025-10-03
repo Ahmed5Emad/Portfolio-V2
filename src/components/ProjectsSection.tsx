@@ -15,35 +15,35 @@ export function ProjectsSection() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   const projects: Project[] = [
-    {
-      title: 'Task & Project Management App',
-      description: 'It is an app for Managing and creating tasks for better project and task management that is user friendly and easy to use.',
-      images: ['src/components/Images/project1.png'],
-      link: 'https://www.figma.com/design/D5LD04Q5olqPwrnvVsSynr/Task-and-Project-management-App?m=auto&t=ne0kTfoH4UNTHOag-6',
-      tags: ['UI/UX Design', 'Mobile App', 'Figma'],
-    },
-    {
-      title: 'Recipe App Design',
-      description: 'This is a recipe app with a friendly and warm user interface. It features recipe cards with high-quality images, clear ingredient lists, and step-by-step instructions. The app showcases a variety of dishes, categorized for easy browsing.',
-      images: ['src/components/Images/project2.png'],
-      link: 'https://www.figma.com/design/R2FW362AM2HpaE0u6E28br/recipe-app?m=auto&t=ne0kTfoH4UNTHOag-6',
-      tags: ['UI Design', 'Mobile App', 'User Experience'],
-    },
-    {
-      title: 'E-Commerce Platform',
-      description: 'An E-Commerce website and app for clothes Site, using modern design and user-friendly interface that provides a seamless shopping experience.',
-      images: ['src/components/Images/project3.png'],
-      link: 'https://www.figma.com/design/ICviq08xhRToqHTfN0NMGe/New-clothes-project?node-id=0-1&t=EBDMiQwsnviwmzoM-1',
-      tags: ['Web Design', 'E-Commerce', 'Responsive'],
-    },
-    {
-      title: 'Clothes Shopping App',
-      description: 'A modern and user-friendly E-Commerce website and app for clothes shopping, with a seamless checkout process and an easy-to-use interface. The website and app are designed to provide an optimal user experience, with features such as easy navigation, clear product information, and a secure payment system.',
-      images: ['src/components/Images/project4.png'],
-      link: 'https://www.figma.com/design/0weRLxvbAGB99nSUfhk0nC/Clothes-Shop?node-id=206-530&t=EBDMiQwsnviwmzoM-1',
-      tags: ['Mobile Design', 'Shopping', 'UI/UX'],
-    },
-  ];
+  {
+    title: 'Task & Project Management App',
+    description: 'It is an app for Managing and creating tasks for better project and task management that is user friendly and easy to use.',
+    images: ['public/images/project1.png'],
+    link: 'https://www.figma.com/design/D5LD04Q5olqPwrnvVsSynr/Task-and-Project-management-App?m=auto&t=ne0kTfoH4UNTHOag-6',
+    tags: ['UI/UX Design', 'Mobile App', 'Figma'],
+  },
+  {
+    title: 'Recipe App Design',
+    description: 'This is a recipe app with a friendly and warm user interface...',
+    images: ['public/images/project2.png'],
+    link: 'https://www.figma.com/design/R2FW362AM2HpaE0u6E28br/recipe-app?m=auto&t=ne0kTfoH4UNTHOag-6',
+    tags: ['UI Design', 'Mobile App', 'User Experience'],
+  },
+  {
+    title: 'E-Commerce Platform',
+    description: 'An E-Commerce website and app for clothes Site...',
+    images: ['public/images/project3.png'],
+    link: 'https://www.figma.com/design/ICviq08xhRToqHTfN0NMGe/New-clothes-project?node-id=0-1&t=EBDMiQwsnviwmzoM-1',
+    tags: ['Web Design', 'E-Commerce', 'Responsive'],
+  },
+  {
+    title: 'Clothes Shopping App',
+    description: 'A modern and user-friendly E-Commerce website...',
+    images: ['public/images/project4.png'],
+    link: 'https://www.figma.com/design/0weRLxvbAGB99nSUfhk0nC/Clothes-Shop?node-id=206-530&t=EBDMiQwsnviwmzoM-1',
+    tags: ['Mobile Design', 'Shopping', 'UI/UX'],
+  },
+];
 
   return (
     <section id="projects" className="min-h-screen flex items-center justify-center px-6 py-20">
