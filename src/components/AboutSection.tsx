@@ -76,7 +76,7 @@ export function AboutSection() {
               {/* Social Links */}
               <div className="flex gap-3">
                 <a
-                  href="https://github.com/ahmed-emad"
+                  href="https://github.com/ahmed5emad"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-gray-100 dark:bg-[#1e1e1e] text-gray-900 dark:text-white rounded-lg hover:bg-orange-500 hover:text-white hover:scale-110 transition-all duration-300"
