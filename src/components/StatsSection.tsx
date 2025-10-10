@@ -15,7 +15,6 @@ export function StatsSection() {
     { icon: <Briefcase className="w-8 h-8" />, value: 18, label: 'Projects Completed', suffix: '+' },
     { icon: <Users className="w-8 h-8" />, value: 5, label: 'Happy Clients', suffix: '+' },
     { icon: <Award className="w-8 h-8" />, value: 2, label: 'Years Experience', suffix: '+' },
-    { icon: <Coffee className="w-8 h-8" />, value: 500, label: 'Cups of Coffee', suffix: '+' },
   ];
 
   useEffect(() => {
@@ -41,9 +40,9 @@ export function StatsSection() {
   }, [hasAnimated]);
 
   return (
-    <section id="stats-section" className="py-20 px-6 bg-gradient-to-b from-white via-gray-50 to-white dark:from-[#121212] dark:via-[#1a1a1a] dark:to-[#121212]">
+    <section id="stats-section" className="py-20 px-6 ">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-3 lg:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
             <StatCard key={index} {...stat} delay={index * 100} shouldAnimate={hasAnimated} />
           ))}
