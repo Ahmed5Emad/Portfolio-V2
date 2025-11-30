@@ -1,4 +1,4 @@
-import { Briefcase, Calendar } from 'lucide-react';
+import { Briefcase, Calendar } from "lucide-react";
 
 interface Experience {
   title: string;
@@ -13,49 +13,80 @@ interface Experience {
 export function ExperienceSection() {
   const experiences: Experience[] = [
     {
+      title: "React Front-end Web Developer",
+      company: "DEPI",
+      period: "2025 November - present",
+      description:
+        "Studing React Devlopment and how to make great web applications with modern technologies.",
+      achievements: [
+        "Architected and built responsive Single Page Applications (SPAs) using React.js and TypeScript",
+        "Implemented reusable UI component libraries using Tailwind CSS to ensure design consistency",
+        "Integrated RESTful APIs to fetch dynamic data and handle asynchronous state management",
+      ],
+      technologies: [
+        "React",
+        "Tailwind CSS",
+        "JavaScript",
+        "TypeScript",
+        "HTML/CSS",
+      ],
+    },
+    {
       title: "UI/UX Designer & Front-End Developer",
       company: "Freelance",
       period: "2025 - Present",
-      description: "Working with various clients to create intuitive and visually appealing digital experiences.",
+      description:
+        "Working with various clients to create intuitive and visually appealing digital experiences.",
       achievements: [
         "Designed and developed 6+ successful projects for diverse clients",
         "Increased user engagement by 40% through improved UX design",
-        "Collaborated with cross-functional teams to deliver projects on time"
+        "Collaborated with cross-functional teams to deliver projects on time",
       ],
-      technologies: ["Figma", "Adobe Photoshop", "Tailwind CSS", "JavaScript", "HTML/CSS"]
+      technologies: [
+        "Figma",
+        "Adobe Photoshop",
+        "Tailwind CSS",
+        "JavaScript",
+        "HTML/CSS",
+      ],
     },
     {
       title: "Front-End Developer",
       company: "National Telecommunication Institute",
       position: "Intern",
       period: "2025 June - 2025 August",
-      description: "Built responsive websites and web applications with modern technologies.",
+      description:
+        "Built responsive websites and web applications with modern technologies.",
       achievements: [
         "Implemented responsive designs with pixel-perfect accuracy",
         "Optimized website performance and loading times",
-        "Collaborated with designers to bring concepts to life"
+        "Collaborated with designers to bring concepts to life",
       ],
-      technologies: ["React", "Tailwind CSS", "JavaScript", "HTML/CSS"]
+      technologies: ["React", "Tailwind CSS", "JavaScript", "HTML/CSS"],
     },
     {
       title: "UI/UX Designer",
       company: "DEPI",
-      period: "2024 - 2025",
-      description: "Created user-centered designs for web and mobile applications.",
+      period: "2024 September - 2025 june",
+      description:
+        "Created user-centered designs for web and mobile applications.",
       achievements: [
         "Developed comprehensive design systems for multiple clients",
         "Conducted user research and usability testing sessions",
-        "Created wireframes, prototypes, and high-fidelity mockups"
+        "Created wireframes, prototypes, and high-fidelity mockups",
       ],
-      technologies: ["Figma", "Adobe XD", "Photoshop", "Illustrator"]
-    }
+      technologies: ["Figma", "Adobe XD", "Photoshop", "Illustrator"],
+    },
   ];
 
   return (
-    <section id="experience" className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden">
+    <section
+      id="experience"
+      className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden"
+    >
       {/* Background decoration */}
       <div className="absolute top-20 left-20 w-96 h-96 bg-orange-500/5 dark:bg-orange-500/10 rounded-full blur-3xl" />
-      
+
       <div className="max-w-5xl w-full relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 mb-4">
@@ -77,27 +108,33 @@ export function ExperienceSection() {
               <div
                 key={index}
                 className={`relative flex flex-col md:flex-row gap-8 ${
-                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                  index % 2 === 0 ? "md:flex-row-reverse" : ""
                 }`}
               >
                 {/* Timeline dot */}
                 <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-orange-500 ring-4 ring-white dark:ring-[#121212] z-10" />
 
                 {/* Content card */}
-                <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:pl-12'} ml-16 md:ml-0`}>
+                <div
+                  className={`flex-1 ${
+                    index % 2 === 0 ? "md:pr-12" : "md:pl-12"
+                  } ml-16 md:ml-0`}
+                >
                   <div className="group relative">
                     <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-pink-500 rounded-2xl blur opacity-0 group-hover:opacity-25 transition duration-1000" />
-                    
+
                     <div className="relative p-6 rounded-2xl bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-white/10 group-hover:border-orange-500/50 transition-all duration-300 shadow-sm hover:shadow-lg">
                       {/* Period badge */}
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-500 text-sm mb-4 ${
-                        index % 2 === 0 ? 'md:float-right md:ml-4' : 'md:float-left md:mr-4'
-                      }`}>
+                      <div
+                        className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 text-orange-500 text-sm mb-4 md:float-right md:ml-4`}
+                      >
                         <Calendar className="w-3 h-3" />
                         {exp.period}
                       </div>
 
-                      <h3 className="text-gray-900 dark:text-white mb-2">{exp.title}</h3>
+                      <h3 className="text-gray-900 dark:text-white mb-2">
+                        {exp.title}
+                      </h3>
                       <h4 className="text-orange-500 mb-4">{exp.position}</h4>
                       <h4 className="text-orange-500 mb-4">{exp.company}</h4>
                       <p className="text-gray-600 dark:text-white/80 mb-4">
@@ -105,9 +142,12 @@ export function ExperienceSection() {
                       </p>
 
                       {/* Achievements */}
-                      <ul className={`space-y-2 mb-4 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
+                      <ul className={`space-y-2 mb-4`}>
                         {exp.achievements.map((achievement, i) => (
-                          <li key={i} className="text-sm text-gray-600 dark:text-white/70 flex items-start gap-2">
+                          <li
+                            key={i}
+                            className="text-sm text-gray-600 dark:text-white/70 flex items-start gap-2"
+                          >
                             <span className="text-orange-500 mt-1">•</span>
                             <span className="flex-1">{achievement}</span>
                           </li>
@@ -116,7 +156,7 @@ export function ExperienceSection() {
 
                       {/* Technologies */}
                       {exp.technologies && (
-                        <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
+                        <div className={`flex flex-wrap gap-2 }`}>
                           {exp.technologies.map((tech, i) => (
                             <span
                               key={i}
