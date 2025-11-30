@@ -43,6 +43,20 @@ export function ProjectsSection() {
     link: 'https://www.figma.com/design/0weRLxvbAGB99nSUfhk0nC/Clothes-Shop?node-id=206-530&t=EBDMiQwsnviwmzoM-1',
     tags: ['Mobile Design', 'Shopping', 'UI/UX'],
   },
+  {
+    title: 'Modern Dashboard',
+    description: 'This is a sleek and modern dashboard UI design created for an analytics platform....',
+    images: ['/Portfolio-V2/images/project5.png'],
+    link: 'https://www.figma.com/design/8V28mHXhiAvufxmv5oO83t/Dashboards?node-id=0-1&t=Ok0UpXnXGYZfdv7E-1',
+    tags: ['Web Design', 'Dashboard', 'Responsive'],
+  },
+  {
+    title: 'Modern Dashboard',
+    description: 'This is a profesional landing page UI design created for an Coffee business....',
+    images: ['/Portfolio-V2/images/project6.png'],
+    link: 'https://www.figma.com/proto/NXk7gIgLGGarJlos8EXxxA/Coffee?node-id=1-3&t=kbZrmMPtu4JIevjW-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1',
+    tags: ['Web Design', 'Landing page', 'Animation'],
+  },
 ];
 
   return (
