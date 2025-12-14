@@ -18,7 +18,7 @@ export function ContactSection() {
     },
     {
       icon: <Linkedin className="w-8 h-8" />,
-      href: 'https://www.linkedin.com/in/ahmed-emad-258356353',
+      href: 'www.linkedin.com/in/ahmed5emad',
       label: 'LinkedIn',
       value: 'Ahmed Emad',
       color: 'from-blue-600 to-blue-800',

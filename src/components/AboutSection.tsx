@@ -85,7 +85,7 @@ export function AboutSection() {
                   <Github className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/ahmed-emad-258356353"
+                  href="www.linkedin.com/in/ahmed5emad"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-gray-100 dark:bg-[#1e1e1e] text-gray-900 dark:text-white rounded-lg hover:bg-orange-500 hover:text-white hover:scale-110 transition-all duration-300"
