@@ -40,7 +40,7 @@ export function ProjectsSection() {
     title: 'Clothes Shopping App',
     description: 'A modern and user-friendly E-Commerce website...',
     images: ['/Portfolio-V2/images/project4.png'],
-    link: 'https://www.figma.com/design/0weRLxvbAGB99nSUfhk0nC/Clothes-Shop?node-id=206-530&t=EBDMiQwsnviwmzoM-1',
+    link: 'https://www.figma.com/design/0weRLxvbAGBz99nSUfhk0nC/Clothes-Shop?node-id=206-530&t=EBDMiQwsnviwmzoM-1',
     tags: ['Mobile Design', 'Shopping', 'UI/UX'],
   },
   {
@@ -51,11 +51,18 @@ export function ProjectsSection() {
     tags: ['Web Design', 'Dashboard', 'Responsive'],
   },
   {
-    title: 'Modern Dashboard',
+    title: 'Coffee Business Landing Page',
     description: 'This is a profesional landing page UI design created for an Coffee business....',
     images: ['/Portfolio-V2/images/project6.png'],
     link: 'https://www.figma.com/proto/NXk7gIgLGGarJlos8EXxxA/Coffee?node-id=1-3&t=kbZrmMPtu4JIevjW-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1',
     tags: ['Web Design', 'Landing page', 'Animation'],
+  },
+  {
+    title: 'App and Dashboard For boat trip',
+    description: 'This is a sleek and modern dashboard UI design for app and dashboard for boat trip app management....',
+    images: ['/Portfolio-V2/images/project7.png'],
+    link: 'https://www.figma.com/design/jAKew3BgHr8UfijHGMXCZP/boats?node-id=42-1573&t=D43uk0N2TWtTtFVL-1',
+    tags: ['Web Design', 'App Design', 'Dashboard'],
   },
 ];
 
