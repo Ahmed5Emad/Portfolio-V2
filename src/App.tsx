@@ -3,7 +3,7 @@ import { Navbar } from './components/Navbar';
 import { AboutSection } from './components/AboutSection';
 import { StatsSection } from './components/StatsSection';
 import { ExperienceSection } from './components/ExperienceSection';
-import { ImprovedSkillsSection } from './components/ImprovedSkillsSection';
+import { SkillsSection } from './components/SkillsSection';
 import { ProcessSection } from './components/ProcessSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
@@ -46,7 +46,7 @@ export default function App() {
           <AboutSection />
           <StatsSection />
           <ExperienceSection />
-          <ImprovedSkillsSection />
+          <SkillsSection />
           <ProcessSection />
           <ProjectsSection />
           <ContactSection />

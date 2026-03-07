@@ -8,6 +8,7 @@ interface Project {
   description: string;
   images: string[];
   link: string;
+  demoLink?: string;
   tags: string[];
 }
 
@@ -34,6 +35,7 @@ export function ProjectsSection() {
     description: 'An E-Commerce website and app for clothes Site...',
     images: ['/Portfolio-V2/images/project3.png'],
     link: 'https://www.figma.com/design/ICviq08xhRToqHTfN0NMGe/New-clothes-project?node-id=0-1&t=EBDMiQwsnviwmzoM-1',
+    demoLink: 'https://ahmed5emad.github.io/E-commerce-Demo/index.html',
     tags: ['Web Design', 'E-Commerce', 'Responsive'],
   },
   {
@@ -119,15 +121,29 @@ export function ProjectsSection() {
                     {project.description}
                   </p>
 
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-orange-500 hover:gap-3 transition-all duration-300 group/link"
-                  >
-                    <span>View Project</span>
-                    <ExternalLink className="w-4 h-4 group-hover/link:rotate-45 transition-transform" />
-                  </a>
+                  <div className="flex flex-wrap gap-4 pt-2">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-orange-500 hover:gap-3 transition-all duration-300 group/link"
+                    >
+                      <span>View Design</span>
+                      <ExternalLink className="w-4 h-4 group-hover/link:rotate-45 transition-transform" />
+                    </a>
+
+                    {project.demoLink && (
+                      <a
+                        href={project.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-orange-500 hover:gap-3 transition-all duration-300 group/link"
+                      >
+                        <span>Live Demo</span>
+                        <ExternalLink className="w-4 h-4 group-hover/link:rotate-45 transition-transform" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

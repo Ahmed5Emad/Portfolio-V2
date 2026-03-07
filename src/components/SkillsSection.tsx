@@ -1,97 +1,137 @@
-import { useState } from 'react';
-import { Figma, Github } from 'lucide-react';
+import { 
+  Palette, 
+  Code, 
+  GitBranch, 
+  Figma,
+  Github,
+  Zap,
+  Smartphone,
+} from 'lucide-react';
+
+interface Skill {
+  name: string;
+  icon: React.ReactNode;
+}
 
 export function SkillsSection() {
-  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
-
-  const skills = [
-    {
-      id: 'figma',
-      icon: <Figma className="w-20 h-20" />,
-      description: 'Used for designing UI/UX experiences. It helps me create prototypes and high-fidelity designs for web and mobile applications.',
-    },
-    {
-      id: 'photoshop',
+  const skills: Skill[] = [
+    { name: 'Figma', icon: <Figma className="w-14 h-14" /> },
+    { 
+      name: 'Adobe Photoshop', 
       icon: (
-        <svg className="w-20 h-20" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-14 h-14" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
           <rect className="fill-current" height="33.92" rx="3" width="33.92" x="7.04" y="7.04" />
-          <path className="fill-white" d="M11.77,15.52h6.71c3.44,0,5.78,1.93,5.78,5.05,0,3.5-2.61,5.18-5.88,5.18H14.91v6.44H11.77Zm3.14,7.71H18c1.88,0,3.05-.81,3.05-2.59s-1.3-2.6-3-2.6H14.91Z" />
-          <path className="fill-white" d="M28.6,28.53a2.36,2.36,0,0,0,2.58,1.74c1.45,0,2-.56,2-1.44s-.54-1.3-2.51-1.79c-3.87-.95-4.56-2.14-4.56-3.87s1.29-3.66,4.84-3.66,4.85,2,5,3.68H33.06c-.14-.57-.54-1.52-2.25-1.52-1.34,0-1.76.61-1.76,1.25s.43,1.08,2.53,1.57c4,.94,4.65,2.3,4.65,4.13,0,2.09-1.62,3.86-5.16,3.86s-5.14-1.75-5.43-3.95Z" />
+          <path className="fill-white dark:fill-[#121212]" d="M11.77,15.52h6.71c3.44,0,5.78,1.93,5.78,5.05,0,3.5-2.61,5.18-5.88,5.18H14.91v6.44H11.77Zm3.14,7.71H18c1.88,0,3.05-.81,3.05-2.59s-1.3-2.6-3-2.6H14.91Z" />
+          <path className="fill-white dark:fill-[#121212]" d="M28.6,28.53a2.36,2.36,0,0,0,2.58,1.74c1.45,0,2-.56,2-1.44s-.54-1.3-2.51-1.79c-3.87-.95-4.56-2.14-4.56-3.87s1.29-3.66,4.84-3.66,4.85,2,5,3.68H33.06c-.14-.57-.54-1.52-2.25-1.52-1.34,0-1.76.61-1.76,1.25s.43,1.08,2.53,1.57c4,.94,4.65,2.3,4.65,4.13,0,2.09-1.62,3.86-5.16,3.86s-5.14-1.75-5.43-3.95Z" />
         </svg>
-      ),
-      description: 'Used for creating visual elements. It helps me create logos, icons, and other visual elements for web and mobile applications.',
+      ) 
     },
-    {
-      id: 'css',
+    { 
+      name: 'Adobe Illustrator', 
       icon: (
-        <svg className="w-20 h-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" fill="currentColor"/>
+        <svg className="w-14 h-14" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <rect className="fill-current" height="33.92" rx="3" width="33.92" x="7.04" y="7.04" />
+          <path className="fill-white dark:fill-[#121212]" d="M18.18,28.57l-1.47,4.25H13.63l5.76-16.68H23.3l6,16.68H26l-1.53-4.25ZM23.76,26c-1.32-3.82-2.12-6.09-2.5-7.51h0C20.82,20,19.94,22.72,18.88,26Z" />
+          <path className="fill-white dark:fill-[#121212]" d="M31.37,15.18h3v2.93h-3Zm0,5.24h3v12.4h-3Z" />
         </svg>
-      ),
-      description: 'Used for styling and layout. It helps me create responsive and accessible designs.',
+      ) 
     },
-    {
-      id: 'javascript',
+    { 
+      name: 'HTML5', 
       icon: (
-        <svg className="w-20 h-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="24" height="24" rx="3" fill="currentColor"/>
-          <path d="M7.5 15.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9h-2v6.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V9h-2v6.5zm6.5-3c0 1.65 1.35 3 3 3s3-1.35 3-3v-.5h-2v.5c0 .55-.45 1-1 1s-1-.45-1-1c0-.55.45-1 1-1h.5c1.38 0 2.5-1.12 2.5-2.5S18.38 9 17 9s-2.5 1.12-2.5 2.5v.5h2v-.5c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1h-.5c-1.38 0-2.5 1.12-2.5 2.5z" fill="#121212"/>
-        </svg>
-      ),
-      description: 'Used for adding interactivity and functionality. It helps me create dynamic and responsive web applications.',
-    },
-    {
-      id: 'html',
-      icon: (
-        <svg className="w-20 h-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-14 h-14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z" fill="currentColor"/>
         </svg>
-      ),
-      description: 'Used for structuring and organizing content. It helps me create semantic and accessible HTML.',
+      ) 
     },
-    {
-      id: 'illustrator',
+    { 
+      name: 'CSS3', 
       icon: (
-        <svg className="w-20 h-20" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-          <rect className="fill-current" height="33.92" rx="3" width="33.92" x="7.04" y="7.04" />
-          <path className="fill-white" d="M18.18,28.57l-1.47,4.25H13.63l5.76-16.68H23.3l6,16.68H26l-1.53-4.25ZM23.76,26c-1.32-3.82-2.12-6.09-2.5-7.51h0C20.82,20,19.94,22.72,18.88,26Z" />
-          <path className="fill-white" d="M31.37,15.18h3v2.93h-3Zm0,5.24h3v12.4h-3Z" />
+        <svg className="w-14 h-14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" fill="currentColor"/>
         </svg>
-      ),
-      description: 'Used for vector design. It helps me create logos, illustrations, and scalable graphics.',
+      ) 
     },
-    {
-      id: 'github',
-      icon: <Github className="w-20 h-20" />,
-      description: 'Used for version control. It helps me collaborate with other developers and manage different versions of code.',
+    { 
+      name: 'JavaScript', 
+      icon: (
+        <svg className="w-14 h-14" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+          <rect width="256" height="256" fill="currentColor"/>
+          <path d="M67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371 7.905 0 12.889-3.092 12.889-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259-19.245 0-30.416-9.967-36.087-21.996M152.381 211.354l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607 9.969 0 16.325-4.984 16.325-11.858 0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257 0-18.044 13.747-31.792 35.228-31.792 15.294 0 26.292 5.328 34.196 19.247l-18.732 12.03c-4.125-7.389-8.591-10.31-15.465-10.31-7.046 0-11.514 4.468-11.514 10.31 0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804 0 21.654-17.012 33.51-39.867 33.51-22.339 0-36.774-10.654-43.819-24.574" className="fill-white dark:fill-[#121212]"/>
+        </svg>
+      ) 
     },
+    { 
+      name: 'React', 
+      icon: (
+        <svg className="w-14 h-14" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.6789 15.9759C18.6789 14.5415 17.4796 13.3785 16 13.3785C14.5206 13.3785 13.3211 14.5415 13.3211 15.9759C13.3211 17.4105 14.5206 18.5734 16 18.5734C17.4796 18.5734 18.6789 17.4105 18.6789 15.9759Z" fill="currentColor"/>
+          <path fillRule="evenodd" clipRule="evenodd" d="M24.7004 11.1537C25.2661 8.92478 25.9772 4.79148 23.4704 3.39016C20.9753 1.99495 17.7284 4.66843 16.0139 6.27318C14.3044 4.68442 10.9663 2.02237 8.46163 3.42814C5.96751 4.82803 6.73664 8.8928 7.3149 11.1357C4.98831 11.7764 1 13.1564 1 15.9759C1 18.7874 4.98416 20.2888 7.29698 20.9289C6.71658 23.1842 5.98596 23.1842 8.48327 28.5877C10.9973 29.9932 14.325 27.3945 16.0554 25.7722C17.7809 27.3864 20.9966 30.0021 23.4922 28.6014C25.9956 27.1963 25.3436 23.1184 24.7653 20.8625C27.0073 20.221 31 18.7523 31 15.9759C31 13.1835 26.9903 11.7923 24.7004 11.1537ZM24.4162 19.667C24.0365 18.5016 23.524 17.2623 22.8971 15.9821C23.4955 14.7321 23.9881 13.5088 24.3572 12.3509C26.0359 12.8228 29.7185 13.9013 29.7185 15.9759C29.7185 18.07 26.1846 19.1587 24.4162 19.667ZM22.85 27.526C20.988 28.571 18.2221 26.0696 16.9478 24.8809C17.7932 23.9844 18.638 22.9422 19.4625 21.7849C20.9129 21.6602 22.283 21.4562 23.5256 21.1777C23.9326 22.7734 24.7202 26.4763 22.85 27.526ZM9.12362 27.5111C7.26143 26.47 8.11258 22.8946 8.53957 21.2333C9.76834 21.4969 11.1286 21.6865 12.5824 21.8008C13.4123 22.9332 14.2816 23.9741 15.1576 24.8857C14.0753 25.9008 10.9945 28.557 9.12362 27.5111ZM2.28149 15.9759C2.28149 13.874 5.94207 12.8033 7.65904 12.3326C8.03451 13.5165 8.52695 14.7544 9.12123 16.0062C8.51925 17.2766 8.01977 18.5341 7.64085 19.732C6.00369 19.2776 2.28149 18.0791 2.28149 15.9759ZM9.1037 4.50354C10.9735 3.45416 13.8747 6.00983 15.1159 7.16013C14.2444 8.06754 13.3831 9.1006 12.5603 10.2265C11.1494 10.3533 9.79875 10.5569 8.55709 10.8297C8.09125 9.02071 7.23592 5.55179 9.1037 4.50354ZM20.3793 11.5771C21.3365 11.6942 22.2536 11.85 23.1147 12.0406C22.8562 12.844 22.534 13.6841 22.1545 14.5453C21.6044 13.5333 21.0139 12.5416 20.3793 11.5771ZM16.0143 8.0481C16.6054 8.66897 17.1974 9.3623 17.7798 10.1145C16.5985 10.0603 15.4153 10.0601 14.234 10.1137C14.8169 9.36848 15.414 8.67618 16.0143 8.0481ZM9.8565 14.5444C9.48329 13.6862 9.16398 12.8424 8.90322 12.0275C9.75918 11.8418 10.672 11.69 11.623 11.5748C10.9866 12.5372 10.3971 13.5285 9.8565 14.5444ZM11.6503 20.4657C10.6679 20.3594 9.74126 20.2153 8.88556 20.0347C9.15044 19.2055 9.47678 18.3435 9.85796 17.4668C10.406 18.4933 11.0045 19.4942 11.6503 20.4657ZM16.0498 23.9915C15.4424 23.356 14.8365 22.6531 14.2448 21.8971C15.4328 21.9423 16.6231 21.9424 17.811 21.891C17.2268 22.6608 16.6369 23.3647 16.0498 23.9915ZM22.1667 17.4222C22.5677 18.3084 22.9057 19.1657 23.1742 19.9809C22.3043 20.1734 21.3652 20.3284 20.3757 20.4435C21.015 19.4607 21.6149 18.4536 22.1667 17.4222ZM18.7473 20.5941C16.9301 20.72 15.1016 20.7186 13.2838 20.6044C12.2509 19.1415 11.3314 17.603 10.5377 16.0058C11.3276 14.4119 12.2404 12.8764 13.2684 11.4158C15.0875 11.2825 16.9178 11.2821 18.7369 11.4166C19.7561 12.8771 20.6675 14.4086 21.4757 15.9881C20.6771 17.5812 19.7595 19.1198 18.7473 20.5941ZM22.8303 4.4666C24.7006 5.51254 23.8681 9.22726 23.4595 10.8426C22.2149 10.5641 20.8633 10.3569 19.4483 10.2281C18.6239 9.09004 17.7698 8.05518 16.9124 7.15949C18.1695 5.98441 20.9781 3.43089 22.8303 4.4666Z" fill="currentColor"/>
+        </svg>
+      ) 
+    },
+    { 
+      name: 'Tailwind CSS', 
+      icon: (
+        <svg className="w-14 h-14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fillRule="evenodd" clipRule="evenodd" d="M12 6.036c-2.667 0-4.333 1.325-5 3.976 1-1.325 2.167-1.822 3.5-1.491.761.189 1.305.738 1.906 1.345C13.387 10.855 14.522 12 17 12c2.667 0 4.333-1.325 5-3.976-1 1.325-2.166 1.822-3.5 1.491-.761-.189-1.305-.738-1.907-1.345-.98-.99-2.114-2.134-4.593-2.134zM7 12c-2.667 0-4.333 1.325-5 3.976 1-1.326 2.167-1.822 3.5-1.491.761.189 1.305.738 1.907 1.345.98.989 2.115 2.134 4.594 2.134 2.667 0 4.333-1.325 5-3.976-1 1.325-2.167 1.822-3.5 1.491-.761-.189-1.305-.738-1.906-1.345C10.613 13.145 9.478 12 7 12z" />
+        </svg>
+      ) 
+    },
+    { name: 'GitHub', icon: <Github className="w-14 h-14" /> },
+    { name: 'Git', icon: <GitBranch className="w-14 h-14" /> },
+    { name: 'UI/UX Design', icon: <Palette className="w-14 h-14" /> },
+    { name: 'Responsive Design', icon: <Smartphone className="w-14 h-14" /> },
   ];
 
   return (
-    <section id="skills" className="min-h-screen flex items-center justify-center px-6 py-20">
-      <div className="max-w-6xl w-full">
-        <h2 className="text-center text-orange-500 mb-12">Skills</h2>
-        
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
-          {skills.map((skill) => (
-            <button
-              key={skill.id}
-              onClick={() => setSelectedSkill(skill.id)}
-              className="flex items-center justify-center p-6 rounded-xl bg-[#1e1e1e] text-white hover:text-orange-500 hover:scale-110 transition-all duration-300"
+    <section id="skills" className="py-24 px-6 bg-white dark:bg-[#121212]">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-center text-orange-500 mb-4 text-3xl font-bold">Skills & Expertise</h2>
+        <p className="text-center text-gray-600 dark:text-white/70 mb-16 max-w-2xl mx-auto">
+          Technologies and tools I use to bring ideas to life
+        </p>
+
+        {/* Skills Grid */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+          {skills.map((skill, index) => (
+            <div
+              key={skill.name}
+              className="group relative aspect-square flex items-center justify-center rounded-2xl bg-white/[0.03] border border-white/10 transition-all duration-300 hover:bg-white/[0.08] hover:border-white/20 hover:-translate-y-2 shadow-sm"
+              style={{ 
+                animation: 'fadeInUp 0.6s ease-out forwards',
+                animationDelay: `${index * 50}ms`,
+                opacity: 0
+              }}
             >
-              {skill.icon}
-            </button>
+              <div className="text-white/70 group-hover:text-orange-500 transition-all duration-300 scale-90 group-hover:scale-110">
+                {skill.icon}
+              </div>
+              
+              {/* Tooltip on hover */}
+              <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-50">
+                <div className="bg-orange-500 text-white px-3 py-1.5 rounded-lg text-sm font-bold whitespace-nowrap shadow-xl">
+                  {skill.name}
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-orange-500 rotate-45" />
+                </div>
+              </div>
+            </div>
           ))}
         </div>
-
-        {selectedSkill && (
-          <div className="text-center">
-            <p className="text-white/90 max-w-3xl mx-auto">
-              {skills.find((s) => s.id === selectedSkill)?.description}
-            </p>
-          </div>
-        )}
       </div>
+
+      <style>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 }

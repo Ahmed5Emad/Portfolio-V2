@@ -52,7 +52,7 @@ export function AboutSection() {
               Hi, I'm <strong className="text-gray-900 dark:text-white">Ahmed Emad</strong>. UI/UX Designer & Front-End Developer passionate about building
               invisible, seamless digital experiences. I translate complex user needs into elegant designs, backed
               by an engineering mindset and a relentless focus on user feedback. From wireframes and prototypes to
-              polished, performant code, I deliver solutions that are both beautiful and functional, ultimately
+              polished, performant co 2de, I deliver solutions that are both beautiful and functional, ultimately
               driving user satisfaction and business success.
             </p>
 
