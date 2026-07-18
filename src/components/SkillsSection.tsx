@@ -16,26 +16,26 @@ interface Skill {
 export function SkillsSection() {
   const skills: Skill[] = [
     { name: 'Figma', icon: <Figma className="w-14 h-14" /> },
-    { 
-      name: 'Adobe Photoshop', 
-      icon: (
-        <svg className="w-14 h-14" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-          <rect className="fill-current" height="33.92" rx="3" width="33.92" x="7.04" y="7.04" />
-          <path className="fill-white dark:fill-[#121212]" d="M11.77,15.52h6.71c3.44,0,5.78,1.93,5.78,5.05,0,3.5-2.61,5.18-5.88,5.18H14.91v6.44H11.77Zm3.14,7.71H18c1.88,0,3.05-.81,3.05-2.59s-1.3-2.6-3-2.6H14.91Z" />
-          <path className="fill-white dark:fill-[#121212]" d="M28.6,28.53a2.36,2.36,0,0,0,2.58,1.74c1.45,0,2-.56,2-1.44s-.54-1.3-2.51-1.79c-3.87-.95-4.56-2.14-4.56-3.87s1.29-3.66,4.84-3.66,4.85,2,5,3.68H33.06c-.14-.57-.54-1.52-2.25-1.52-1.34,0-1.76.61-1.76,1.25s.43,1.08,2.53,1.57c4,.94,4.65,2.3,4.65,4.13,0,2.09-1.62,3.86-5.16,3.86s-5.14-1.75-5.43-3.95Z" />
-        </svg>
-      ) 
-    },
-    { 
-      name: 'Adobe Illustrator', 
-      icon: (
-        <svg className="w-14 h-14" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-          <rect className="fill-current" height="33.92" rx="3" width="33.92" x="7.04" y="7.04" />
-          <path className="fill-white dark:fill-[#121212]" d="M18.18,28.57l-1.47,4.25H13.63l5.76-16.68H23.3l6,16.68H26l-1.53-4.25ZM23.76,26c-1.32-3.82-2.12-6.09-2.5-7.51h0C20.82,20,19.94,22.72,18.88,26Z" />
-          <path className="fill-white dark:fill-[#121212]" d="M31.37,15.18h3v2.93h-3Zm0,5.24h3v12.4h-3Z" />
-        </svg>
-      ) 
-    },
+    // {
+    //   name: 'Adobe Photoshop',
+    //   icon: (
+    //     <svg className="w-14 h-14" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    //       <rect className="fill-current" height="33.92" rx="3" width="33.92" x="7.04" y="7.04" />
+    //       <path className="fill-white dark:fill-[#121212]" d="M11.77,15.52h6.71c3.44,0,5.78,1.93,5.78,5.05,0,3.5-2.61,5.18-5.88,5.18H14.91v6.44H11.77Zm3.14,7.71H18c1.88,0,3.05-.81,3.05-2.59s-1.3-2.6-3-2.6H14.91Z" />
+    //       <path className="fill-white dark:fill-[#121212]" d="M28.6,28.53a2.36,2.36,0,0,0,2.58,1.74c1.45,0,2-.56,2-1.44s-.54-1.3-2.51-1.79c-3.87-.95-4.56-2.14-4.56-3.87s1.29-3.66,4.84-3.66,4.85,2,5,3.68H33.06c-.14-.57-.54-1.52-2.25-1.52-1.34,0-1.76.61-1.76,1.25s.43,1.08,2.53,1.57c4,.94,4.65,2.3,4.65,4.13,0,2.09-1.62,3.86-5.16,3.86s-5.14-1.75-5.43-3.95Z" />
+    //     </svg>
+    //   )
+    // },
+    // {
+    //   name: 'Adobe Illustrator',
+    //   icon: (
+    //     <svg className="w-14 h-14" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    //       <rect className="fill-current" height="33.92" rx="3" width="33.92" x="7.04" y="7.04" />
+    //       <path className="fill-white dark:fill-[#121212]" d="M18.18,28.57l-1.47,4.25H13.63l5.76-16.68H23.3l6,16.68H26l-1.53-4.25ZM23.76,26c-1.32-3.82-2.12-6.09-2.5-7.51h0C20.82,20,19.94,22.72,18.88,26Z" />
+    //       <path className="fill-white dark:fill-[#121212]" d="M31.37,15.18h3v2.93h-3Zm0,5.24h3v12.4h-3Z" />
+    //     </svg>
+    //   )
+    // },
     { 
       name: 'HTML5', 
       icon: (
