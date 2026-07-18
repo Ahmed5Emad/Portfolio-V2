@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Briefcase, Users, Award, Coffee } from 'lucide-react';
+import { Briefcase, Users, Award } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 interface Stat {
   icon: React.ReactNode;
@@ -10,6 +11,7 @@ interface Stat {
 
 export function StatsSection() {
   const [hasAnimated, setHasAnimated] = useState(false);
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.3 });
   
   const stats: Stat[] = [
     { icon: <Briefcase className="w-8 h-8" />, value: 18, label: 'Projects Completed', suffix: '+' },
@@ -40,9 +42,11 @@ export function StatsSection() {
   }, [hasAnimated]);
 
   return (
-    <section id="stats-section" className="py-20 px-6 ">
+    <section id="stats-section" className="py-20 px-6 " ref={ref}>
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-3 lg:grid-cols-3 gap-8">
+        <div className={`grid grid-cols-3 lg:grid-cols-3 gap-4 md:gap-8 transition-all duration-700 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           {stats.map((stat, index) => (
             <StatCard key={index} {...stat} delay={index * 100} shouldAnimate={hasAnimated} />
           ))}

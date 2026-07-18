@@ -1,4 +1,5 @@
 import { Briefcase, Calendar } from "lucide-react";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 interface Experience {
   title: string;
@@ -80,10 +81,13 @@ export function ExperienceSection() {
     },
   ];
 
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section
       id="experience"
       className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden"
+      ref={ref}
     >
       {/* Background decoration */}
       <div className="absolute top-20 left-20 w-96 h-96 bg-orange-500/5 dark:bg-orange-500/10 rounded-full blur-3xl" />
@@ -102,24 +106,27 @@ export function ExperienceSection() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 via-orange-500/50 to-transparent" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 via-orange-500/50 to-transparent" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className={`relative flex flex-col md:flex-row gap-8 ${
+                className={`relative flex flex-col md:flex-row gap-8 transition-all duration-700 ${
                   index % 2 === 0 ? "md:flex-row-reverse" : ""
+                } ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-orange-500 ring-4 ring-white dark:ring-[#121212] z-10" />
+                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-orange-500 ring-4 ring-white dark:ring-[#121212] z-10" />
 
                 {/* Content card */}
                 <div
                   className={`flex-1 ${
                     index % 2 === 0 ? "md:pr-12" : "md:pl-12"
-                  } ml-16 md:ml-0`}
+                  } ml-12 md:ml-0`}
                 >
                   <div className="group relative">
                     <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-pink-500 rounded-2xl blur opacity-0 group-hover:opacity-25 transition duration-1000" />
@@ -136,7 +143,9 @@ export function ExperienceSection() {
                       <h3 className="text-gray-900 dark:text-white mb-2">
                         {exp.title}
                       </h3>
-                      <h4 className="text-orange-500 mb-4">{exp.position}</h4>
+                      {exp.position && (
+                        <h4 className="text-orange-500 mb-4">{exp.position}</h4>
+                      )}
                       <h4 className="text-orange-500 mb-4">{exp.company}</h4>
                       <p className="text-gray-600 dark:text-white/80 mb-4">
                         {exp.description}

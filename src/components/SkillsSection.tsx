@@ -7,6 +7,7 @@ import {
   Zap,
   Smartphone,
 } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 interface Skill {
   name: string;
@@ -66,8 +67,10 @@ export function SkillsSection() {
     { name: 'Responsive Design', icon: <Smartphone className="w-14 h-14" /> },
   ];
 
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section id="skills" className="py-24 px-6 bg-white dark:bg-[#121212]">
+    <section id="skills" className="py-24 px-6 bg-white dark:bg-[#121212]" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <h2 className="text-center text-orange-500 mb-4 text-3xl font-bold">Skills & Expertise</h2>
         <p className="text-center text-gray-600 dark:text-white/70 mb-16 max-w-2xl mx-auto">
@@ -75,7 +78,9 @@ export function SkillsSection() {
         </p>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+        <div className={`grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 transition-all duration-700 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           {skills.map((skill, index) => (
             <div
               key={skill.name}

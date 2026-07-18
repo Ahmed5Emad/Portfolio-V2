@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { Quote, Star } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Star, Quote } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 interface Testimonial {
   name: string;
@@ -8,98 +7,83 @@ interface Testimonial {
   company: string;
   content: string;
   rating: number;
-  image: string;
 }
+
+const UPWORK_URL = "https://www.upwork.com/freelancers/~01460a8313a82b3237?mp_source=share";
 
 export function TestimonialsSection() {
   const testimonials: Testimonial[] = [
     {
-      name: "Sarah Johnson",
-      role: "Product Manager",
-      company: "TechCorp Inc.",
-      content: "Ahmed's design work exceeded our expectations. His attention to detail and user-centric approach resulted in a 40% increase in user engagement.",
+      name: "Abdullah Albar",
+      role: "CEO & Founder",
+      company: "Kaptain",
+      content: "Great experience with him. He redesigned the 2 UI's and built a clean, well-structured admin panel. Very easy to communicate with, understood the product well, and delivered high-quality work. Would definitely recommend.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
     },
     {
-      name: "Michael Chen",
-      role: "CEO",
-      company: "StartupXYZ",
-      content: "Working with Ahmed was a game-changer. He transformed our vision into a beautiful, functional product that our users love.",
+      name: "Oxana Demchenko",
+      role: "",
+      company: "",
+      content: "I enjoyed working with Ahmed and will likely have additional jobs for him in the future.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
     },
     {
-      name: "Emily Rodriguez",
-      role: "Marketing Director",
-      company: "Digital Solutions",
-      content: "Ahmed's ability to blend creativity with functionality is impressive. He delivered a design that perfectly represents our brand.",
+      name: "Ted Stevenson",
+      role: "Senior User Researcher",
+      company: "Amazon",
+      content: "Good advice in user research interview for online course/marketing materials.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
     },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-20 right-20 w-72 h-72 bg-orange-500/5 dark:bg-orange-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-pink-500/5 dark:bg-pink-500/10 rounded-full blur-3xl" />
-      
-      <div className="max-w-6xl w-full relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 mb-4">
-            <Quote className="w-4 h-4" />
-            <span className="text-sm">What Clients Say</span>
-          </div>
-          <h2 className="text-orange-500 mb-4">Testimonials</h2>
-          <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
-            Don't just take my word for it - here's what some of my clients have to say
-          </p>
+    <section id="testimonials" ref={ref}>
+      <div className="text-center px-6 pt-28 pb-14">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 mb-4">
+          <Quote className="w-4 h-4" />
+          <span className="text-sm">What Clients Say</span>
         </div>
+        <h2 className="text-orange-500 text-2xl">Testimonials</h2>
+      </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+      <div className={`max-w-7xl mx-auto px-6 pb-24 transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}>
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
           {testimonials.map((testimonial, index) => (
-            <div
+            <a
               key={index}
-              className="group relative"
-              onMouseEnter={() => setActiveIndex(index)}
+              href={UPWORK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block break-inside-avoid mb-4 group rounded-2xl overflow-hidden bg-white/80 dark:bg-[#1e1e1e]/80 backdrop-blur-lg border border-gray-200 dark:border-white/10 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 cursor-pointer"
             >
-              <div className={`absolute -inset-1 bg-gradient-to-r from-orange-500 to-pink-500 rounded-2xl blur transition duration-500 ${
-                activeIndex === index ? 'opacity-25' : 'opacity-0'
-              }`}></div>
-              
-              <div className={`relative h-full p-8 rounded-2xl bg-white dark:bg-[#1e1e1e] border transition-all duration-300 shadow-sm ${
-                activeIndex === index ? 'border-orange-500/50 scale-105' : 'border-gray-200 dark:border-white/10'
-              }`}>
-                <Quote className="w-10 h-10 text-orange-500/20 mb-4" />
-                
-                <div className="flex gap-1 mb-4">
+              <div className="p-5 space-y-3">
+                <div className="flex gap-1">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-orange-500 text-orange-500" />
                   ))}
                 </div>
 
-                <p className="text-gray-700 dark:text-white/80 mb-6 italic leading-relaxed">
+                <p className="text-gray-600 dark:text-white/60 text-sm leading-relaxed">
                   "{testimonial.content}"
                 </p>
 
-                <div className="flex items-center gap-4 pt-4 border-t border-gray-200 dark:border-white/10">
-                  <div className="w-12 h-12 rounded-full overflow-hidden bg-orange-500/10">
-                    <ImageWithFallback
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-full h-full object-cover"
-                    />
+                <div className="flex items-center gap-3 pt-3 border-t border-gray-200 dark:border-white/10">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white text-sm font-bold shadow-sm shrink-0">
+                    {testimonial.name.charAt(0)}
                   </div>
-                  <div>
-                    <h4 className="text-gray-900 dark:text-white">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600 dark:text-white/60">{testimonial.role} at {testimonial.company}</p>
+                  <div className="min-w-0">
+                    <p className="text-gray-900 dark:text-white text-sm font-semibold group-hover:text-orange-500 transition-colors truncate">{testimonial.name}</p>
+                    {testimonial.role && (
+                      <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5 truncate">{testimonial.role}{testimonial.company ? ` at ${testimonial.company}` : ''}</p>
+                    )}
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

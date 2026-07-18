@@ -1,11 +1,12 @@
 import { ExternalLink, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from './ui/ImageWithFallback';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const projects = [
   {
     title: 'Task & Project Management App',
     description: 'It is an app for Managing and creating tasks for better project and task management that is user friendly and easy to use.',
-    images: ['/Portfolio-V2/images/project1.png'],
+    images: ['/Portfolio-V2/images/project1.webp'],
     link: 'https://www.figma.com/design/D5LD04Q5olqPwrnvVsSynr/Task-and-Project-management-App?m=auto&t=ne0kTfoH4UNTHOag-6',
     tags: ['UI/UX Design', 'Mobile App', 'Figma'],
   },
@@ -63,8 +64,9 @@ const projects = [
 ];
 
 export function ProjectsSection() {
+  const { ref, isVisible } = useScrollReveal();
   return (
-    <section id="projects">
+    <section id="projects" ref={ref}>
       <div className="text-center px-6 pt-28 pb-14">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 mb-4">
           <Sparkles className="w-4 h-4" />
@@ -73,7 +75,9 @@ export function ProjectsSection() {
         <h2 className="text-orange-500 text-2xl">Projects</h2>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pb-24">
+      <div className={`max-w-7xl mx-auto px-6 pb-24 transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}>
         <div className="columns-1 md:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
           {projects.map((project, i) => (
             <div key={i} className="break-inside-avoid mb-4 group rounded-2xl overflow-hidden bg-white/80 dark:bg-[#1e1e1e]/80 backdrop-blur-lg border border-gray-200 dark:border-white/10 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300">

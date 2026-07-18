@@ -1,5 +1,7 @@
 import { Search, Pencil, Code2, Rocket } from 'lucide-react';
 
+import { useScrollReveal } from '../hooks/useScrollReveal';
+
 export function ProcessSection() {
   const steps = [
     {
@@ -27,9 +29,10 @@ export function ProcessSection() {
       color: 'from-green-500 to-emerald-500',
     },
   ];
+  const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-20 px-6 ">
+    <section className="py-20 px-6 " ref={ref}>
       <div className="max-w-6xl mx-auto">
         <h2 className="text-center text-orange-500 mb-4 text-2xl">My Process</h2>
         <p className="text-center text-gray-600 dark:text-white/70 mb-16 max-w-2xl mx-auto">
@@ -38,10 +41,21 @@ export function ProcessSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, index) => (
-            <div key={index} className="relative group">
-              {/* Connection Line */}
+            <div
+              key={index}
+              className={`relative group transition-all duration-700 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
+              {/* Horizontal Connection Line (desktop) */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-orange-500/50 to-transparent -z-10" />
+              )}
+              
+              {/* Vertical Connection Line (mobile/tablet) */}
+              {index < steps.length - 1 && (
+                <div className="lg:hidden absolute -bottom-3 left-1/2 -translate-x-1/2 w-0.5 h-6 bg-gradient-to-b from-orange-500/50 to-transparent" />
               )}
               
               <div className="relative h-full p-6 rounded-2xl bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-white/10 hover:border-orange-500/50 transition-all duration-300 hover:scale-105 shadow-sm">

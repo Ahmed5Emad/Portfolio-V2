@@ -1,8 +1,10 @@
 import { TypewriterText } from './TypewriterText';
 import { ImageWithFallback } from './ui/ImageWithFallback';
 import { Download, MapPin, Github, Linkedin, Mail } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export function AboutSection() {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
   const handleDownloadCV = () => {
     const cvUrl = '/Portfolio-V2/files/ahmed-emad-cv.pdf'; // CV file is now in public/files
     const link = document.createElement('a');
@@ -15,7 +17,7 @@ export function AboutSection() {
 
 
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center px-6 py-20 pt-32 relative overflow-hidden">
+    <section id="about" className="min-h-screen flex items-center justify-center px-6 py-20 pt-32 relative overflow-hidden" ref={ref}>
       {/* Animated Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e1e1e_1px,transparent_1px),linear-gradient(to_bottom,#1e1e1e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20" />
       
@@ -28,12 +30,14 @@ export function AboutSection() {
           <h2 className="text-orange-500 text-2xl">About Me</h2>
         </div>
         
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className={`flex flex-col lg:flex-row items-center gap-12 transition-all duration-700 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           <div className="flex-shrink-0 relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-pink-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-            <div className="relative w-[400px] h-[400px] rounded-2xl overflow-hidden bg-gray-100 dark:bg-[#1e1e1e] p-6">
+            <div className="relative w-[380px] h-[380px] md:w-[400px] md:h-[400px] rounded-2xl overflow-hidden bg-gray-100 dark:bg-[#1e1e1e] p-2">
               <ImageWithFallback
-                src="/Portfolio-V2/images/me.jpg"
+                src="/Portfolio-V2/images/me.webp"
                 alt="Ahmed Emad"
                 className="w-full h-full object-cover rounded-lg"
               />

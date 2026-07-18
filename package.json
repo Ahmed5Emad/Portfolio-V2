@@ -21,7 +21,7 @@
     "vite": "6.3.5"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build"
+    "dev": "NODE_OPTIONS='--disable-warning=DEP0205' bun run vite",
+    "build": "NODE_OPTIONS='--disable-warning=DEP0205' bun run vite build"
   }
 }

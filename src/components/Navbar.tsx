@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 
 interface NavbarProps {
@@ -8,6 +9,7 @@ interface NavbarProps {
 
 export function Navbar({ isDark, toggleTheme }: NavbarProps) {
   const [activeSection, setActiveSection] = useState("about");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,11 +37,17 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+    setMobileOpen(false);
   };
 
   const navItems = [
@@ -52,6 +60,7 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    setMobileOpen(false);
   };
 
   return (
@@ -72,7 +81,7 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
             </span>
           </button>
 
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-4">
             <ul className="hidden md:flex gap-8">
               {navItems.map((item) => (
                 <li key={item.id}>
@@ -94,8 +103,61 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
             </ul>
 
             <ThemeToggle isDark={isDark} toggle={toggleTheme} />
+
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="md:hidden p-2 text-gray-900 dark:text-white hover:text-orange-500 transition-colors"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+      </div>
+
+      {/* Mobile overlay */}
+      <div
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-md transition-opacity duration-300 md:hidden ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setMobileOpen(false)}
+      />
+
+      {/* Mobile menu panel */}
+      <div
+        className={`fixed top-0 right-0 z-50 h-full w-72 bg-white dark:bg-[#1e1e1e] border-l border-gray-200 dark:border-white/10 shadow-2xl transition-transform duration-300 md:hidden ${
+          mobileOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-white/10">
+          <button onClick={scrollToTop} className="text-xl font-bold text-orange-500">
+            AE
+          </button>
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="p-2 text-gray-900 dark:text-white hover:text-orange-500 transition-colors"
+            aria-label="Close menu"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        <ul className="flex flex-col gap-2 p-6">
+          {navItems.map((item) => (
+            <li key={item.id}>
+              <button
+                onClick={() => scrollToSection(item.id)}
+                className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-300 ${
+                  activeSection === item.id
+                    ? "bg-orange-500/10 text-orange-500 font-bold"
+                    : "text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-white/5"
+                }`}
+              >
+                {item.label}
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );

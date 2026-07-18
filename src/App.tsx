@@ -51,6 +51,7 @@ export default function App() {
           <SkillsSection />
           <ProcessSection />
           <ProjectsSection />
+          <TestimonialsSection />
           <ContactSection />
         </main>
         <ScrollToTop />
