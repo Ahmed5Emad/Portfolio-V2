@@ -1,21 +1,7 @@
-import { useState } from 'react';
 import { ExternalLink, Sparkles } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Badge } from './ui/badge';
+import { ImageWithFallback } from './ui/ImageWithFallback';
 
-interface Project {
-  title: string;
-  description: string;
-  images: string[];
-  link: string;
-  demoLink?: string;
-  tags: string[];
-}
-
-export function ProjectsSection() {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-
-  const projects: Project[] = [
+const projects = [
   {
     title: 'Task & Project Management App',
     description: 'It is an app for Managing and creating tasks for better project and task management that is user friendly and easy to use.',
@@ -66,84 +52,75 @@ export function ProjectsSection() {
     link: 'https://www.figma.com/design/jAKew3BgHr8UfijHGMXCZP/boats?node-id=42-1573&t=D43uk0N2TWtTtFVL-1',
     tags: ['Web Design', 'App Design', 'Dashboard'],
   },
+  {
+    title: 'Focus — Deep Work Engine',
+    description: 'A full-stack productivity app with task management, project tracking, goal tracking, and a Pomodoro focus timer.',
+    images: ['/Portfolio-V2/images/project8.png'],
+    link: 'https://github.com/Ahmed5Emad/Focus',
+    demoLink: 'https://focus-peach-eight.vercel.app',
+    tags: ['React', 'TypeScript', 'Supabase', 'Full-Stack', 'UI/UX'],
+  },
 ];
 
+export function ProjectsSection() {
   return (
-    <section id="projects" className="min-h-screen flex items-center justify-center px-6 py-20">
-      <div className="max-w-6xl w-full">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 mb-4">
-            <Sparkles className="w-4 h-4" />
-            <span className="text-sm">Featured Work</span>
-          </div>
-          <h2 className="text-orange-500 mb-4 text-2xl">Projects</h2>
-          <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
-            A collection of my recent design and development work
-          </p>
+    <section id="projects">
+      <div className="text-center px-6 pt-28 pb-14">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 mb-4">
+          <Sparkles className="w-4 h-4" />
+          <span className="text-sm">Featured Work</span>
         </div>
-        
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group relative"
-              onMouseEnter={() => setHoveredProject(index)}
-              onMouseLeave={() => setHoveredProject(null)}
-            >
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-pink-500 rounded-2xl blur opacity-0 group-hover:opacity-25 transition duration-1000"></div>
-              
-              <div className="relative h-full rounded-2xl overflow-hidden bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-white/10 group-hover:border-orange-500/50 transition-all duration-300 shadow-sm">
-                {/* Image Container */}
-                <div className="relative overflow-hidden bg-gradient-to-br from-orange-500/5 to-transparent">
-                  <ImageWithFallback
-                    src={project.images[0]}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#1e1e1e] via-transparent to-transparent" />
+        <h2 className="text-orange-500 text-2xl">Projects</h2>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 pb-24">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
+          {projects.map((project, i) => (
+            <div key={i} className="break-inside-avoid mb-4 group rounded-2xl overflow-hidden bg-white/80 dark:bg-[#1e1e1e]/80 backdrop-blur-lg border border-gray-200 dark:border-white/10 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300">
+              <div className="overflow-hidden">
+                <ImageWithFallback
+                  src={project.images[0]}
+                  alt={project.title}
+                  className="w-full h-auto block"
+                />
+              </div>
+
+              <div className="p-5 space-y-3 flex flex-col flex-1">
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tags.slice(0, 3).map((tag, t) => (
+                    <span key={t} className="px-2 py-0.5 text-[11px] font-medium text-orange-500 bg-orange-500/10 rounded">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
 
-                {/* Content */}
-                <div className="p-6 space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, i) => (
-                      <Badge key={i} variant="secondary" className="bg-orange-500/10 text-orange-500 border-orange-500/20">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
+                <h3 className="text-gray-900 dark:text-white font-bold text-base group-hover:text-orange-500 transition-colors">
+                  {project.title}
+                </h3>
 
-                  <h3 className="text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 dark:text-white/70 text-sm leading-relaxed line-clamp-3">
-                    {project.description}
-                  </p>
+                <p className="text-gray-600 dark:text-white/60 text-sm leading-relaxed line-clamp-2 flex-1">
+                  {project.description}
+                </p>
 
-                  <div className="flex flex-wrap gap-4 pt-2">
+                <div className="flex flex-wrap gap-3 pt-1">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-orange-500 group/link"
+                  >
+                    View <ExternalLink className="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:rotate-45" />
+                  </a>
+                  {project.demoLink && (
                     <a
-                      href={project.link}
+                      href={project.demoLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-orange-500 hover:gap-3 transition-all duration-300 group/link"
+                      className="inline-flex items-center gap-1 text-sm text-orange-500 group/link"
                     >
-                      <span>View Design</span>
-                      <ExternalLink className="w-4 h-4 group-hover/link:rotate-45 transition-transform" />
+                      Live Demo <ExternalLink className="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:rotate-45" />
                     </a>
-
-                    {project.demoLink && (
-                      <a
-                        href={project.demoLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-orange-500 hover:gap-3 transition-all duration-300 group/link"
-                      >
-                        <span>Live Demo</span>
-                        <ExternalLink className="w-4 h-4 group-hover/link:rotate-45 transition-transform" />
-                      </a>
-                    )}
-                  </div>
+                  )}
                 </div>
               </div>
             </div>

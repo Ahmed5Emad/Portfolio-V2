@@ -1,5 +1,5 @@
 import { TypewriterText } from './TypewriterText';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from './ui/ImageWithFallback';
 import { Download, MapPin, Github, Linkedin, Mail } from 'lucide-react';
 
 export function AboutSection() {
@@ -49,11 +49,7 @@ export function AboutSection() {
             </div>
             
             <p className="text-gray-700 dark:text-white/90 leading-relaxed">
-              Hi, I'm <strong className="text-gray-900 dark:text-white">Ahmed Emad</strong>. UI/UX Designer & Front-End Developer passionate about building
-              invisible, seamless digital experiences. I translate complex user needs into elegant designs, backed
-              by an engineering mindset and a relentless focus on user feedback. From wireframes and prototypes to
-              polished, performant co 2de, I deliver solutions that are both beautiful and functional, ultimately
-              driving user satisfaction and business success.
+              Hi, I'm <strong className="text-gray-900 dark:text-white">Ahmed Emad</strong>. A UI/UX Designer & Front-End Engineer with a strong foundation in Computer Engineering. I specialize in applying Human-Centered Design principles to translate complex user needs into intuitive, responsive, and high-performance web applications using React, Next.js, and Tailwind CSS. From user research and scalable Figma design systems to accessible, production-ready code — I deliver digital products that measurably improve user engagement and business value.
             </p>
 
             <div className="space-y-4">
@@ -85,7 +81,7 @@ export function AboutSection() {
                   <Github className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/ahmed5emad"
+                   href="https://www.linkedin.com/in/ahmed5emad"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-gray-100 dark:bg-[#1e1e1e] text-gray-900 dark:text-white rounded-lg hover:bg-orange-500 hover:text-white hover:scale-110 transition-all duration-300"

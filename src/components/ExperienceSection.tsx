@@ -13,69 +13,70 @@ interface Experience {
 export function ExperienceSection() {
   const experiences: Experience[] = [
     {
-      title: "React Front-end Web Developer",
-      company: "DEPI",
-      period: "2025 November - present",
-      description:
-        "Studing React Devlopment and how to make great web applications with modern technologies.",
-      achievements: [
-        "Architected and built responsive Single Page Applications (SPAs) using React.js and TypeScript",
-        "Implemented reusable UI component libraries using Tailwind CSS to ensure design consistency",
-        "Integrated RESTful APIs to fetch dynamic data and handle asynchronous state management",
-      ],
-      technologies: [
-        "React",
-        "Tailwind CSS",
-        "JavaScript",
-        "TypeScript",
-        "HTML/CSS",
-      ],
-    },
-    {
       title: "UI/UX Designer & Front-End Developer",
       company: "Freelance",
-      period: "2025 - Present",
+      period: "Jan 2025 - Present",
       description:
-        "Working with various clients to create intuitive and visually appealing digital experiences.",
+        "Designing and developing responsive platforms, translating complex client requirements into intuitive digital experiences.",
       achievements: [
-        "Designed and developed 6+ successful projects for diverse clients",
-        "Increased user engagement by 40% through improved UX design",
-        "Collaborated with cross-functional teams to deliver projects on time",
+        "Designed and developed responsive e-commerce and education platforms, improving user engagement",
+        "Engineered scalable, production-ready front-end solutions using React, Next.js, and Tailwind CSS",
+        "Translated complex client requirements into detailed wireframes, interactive prototypes, and pixel-perfect UIs in Figma",
       ],
-      technologies: [
-        "Figma",
-        "Adobe Photoshop",
-        "Tailwind CSS",
-        "JavaScript",
-        "HTML/CSS",
-      ],
+      technologies: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Figma"],
     },
     {
       title: "Front-End Developer",
-      company: "National Telecommunication Institute",
-      position: "Intern",
-      period: "2025 June - 2025 August",
+      company: "Digital Egypt Pioneers Initiative (DEPI)",
+      period: "Nov 2025 - Jul 2026",
       description:
-        "Built responsive websites and web applications with modern technologies.",
+        "Building responsive interfaces and reusable React components for modern web applications.",
       achievements: [
-        "Implemented responsive designs with pixel-perfect accuracy",
-        "Optimized website performance and loading times",
-        "Collaborated with designers to bring concepts to life",
+        "Built responsive, mobile-friendly web pages using CSS and Tailwind utility classes ensuring cross-device compatibility",
+        "Developed reusable UI elements in React with clean, consistent styling across applications",
+        "Managed state and data flow using React Hooks and integrated RESTful APIs",
       ],
-      technologies: ["React", "Tailwind CSS", "JavaScript", "HTML/CSS"],
+      technologies: ["React", "Tailwind CSS", "TypeScript", "JavaScript", "HTML/CSS"],
+    },
+    {
+      title: "Front-End Developer",
+      company: "National Telecommunication Institute (NTI)",
+      position: "Intern",
+      period: "Jun 2025 - Aug 2025",
+      description:
+        "Developed responsive, production-ready UIs and transformed Figma designs into functional applications.",
+      achievements: [
+        "Developed responsive UIs that improve user engagement using React, Next.js, and Tailwind CSS",
+        "Transformed Figma designs into production-ready applications and websites",
+      ],
+      technologies: ["React", "Next.js", "Tailwind CSS", "JavaScript", "HTML/CSS"],
     },
     {
       title: "UI/UX Designer",
-      company: "DEPI",
-      period: "2024 September - 2025 june",
+      company: "Digital Egypt Pioneers Initiative (DEPI)",
+      position: "Intern",
+      period: "Oct 2024 - Jun 2025",
       description:
-        "Created user-centered designs for web and mobile applications.",
+        "Built scalable design systems and conducted user research to create user-centered digital experiences.",
       achievements: [
-        "Developed comprehensive design systems for multiple clients",
-        "Conducted user research and usability testing sessions",
-        "Created wireframes, prototypes, and high-fidelity mockups",
+        "Built and maintained a scalable Figma design system, improving design handoff efficiency",
+        "Conducted user interviews and usability testing, iteratively refining core user experiences",
+        "Developed wireframes, user flows, and interactive prototypes for web and mobile applications",
       ],
-      technologies: ["Figma", "Adobe XD", "Photoshop", "Illustrator"],
+      technologies: ["Figma", "User Research", "Prototyping", "Design Systems"],
+    },
+    {
+      title: "Cloud Computing",
+      company: "Huawei Technologies",
+      position: "Intern",
+      period: "Jul 2024 - Oct 2024",
+      description:
+        "Gained foundational knowledge of scalable cloud systems and DevOps workflows in a large-scale enterprise environment.",
+      achievements: [
+        "Learned cloud infrastructure fundamentals and scalable system architecture",
+        "Gained exposure to DevOps workflows in an enterprise environment",
+      ],
+      technologies: ["Cloud Computing", "DevOps"],
     },
   ];
 

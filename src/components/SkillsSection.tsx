@@ -78,6 +78,8 @@ export function SkillsSection() {
         </svg>
       ) 
     },
+    { name: 'TypeScript', icon: <Code className="w-14 h-14" /> },
+    { name: 'Next.js', icon: <Zap className="w-14 h-14" /> },
     { name: 'GitHub', icon: <Github className="w-14 h-14" /> },
     { name: 'Git', icon: <GitBranch className="w-14 h-14" /> },
     { name: 'UI/UX Design', icon: <Palette className="w-14 h-14" /> },
