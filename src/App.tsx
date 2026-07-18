@@ -15,7 +15,9 @@ export default function App() {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    // Check for saved theme preference or default to dark
+    if (window.location.hash) history.replaceState(null, '', window.location.pathname);
+    window.scrollTo(0, 0);
+    history.scrollRestoration = 'manual';
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
       setIsDark(false);
