@@ -265,7 +265,7 @@ export function CaseStudy() {
                   <img
                     src={img}
                     alt={`${project.title} screenshot ${i + 1}`}
-                    className="w-full"
+                    className="w-full max-w-full h-auto"
                     loading="lazy"
                   />
                 </button>
