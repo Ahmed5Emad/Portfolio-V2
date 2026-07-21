@@ -255,17 +255,17 @@ export function CaseStudy() {
             <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-gold">
               Gallery
             </h2>
-            <div className="mt-4 grid grid-cols-3 gap-3">
+            <div className="mt-4 columns-3 gap-4">
               {project.images.gallery.map((img, i) => (
                 <button
                   key={i}
                   onClick={() => openLightbox(i)}
-                  className="w-full rounded-sm overflow-hidden border border-border transition-opacity hover:opacity-80 text-left"
+                  className="mb-4 inline-block w-full overflow-hidden rounded-sm border border-border transition-opacity hover:opacity-80 text-left"
                 >
                   <img
                     src={img}
                     alt={`${project.title} screenshot ${i + 1}`}
-                    className="w-full"
+                    className="w-full h-auto"
                     loading="lazy"
                   />
                 </button>
