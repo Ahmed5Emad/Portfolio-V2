@@ -46,12 +46,12 @@ export const projects: CaseStudy[] = [
       "Payout tracking automated for captains",
     ],
     images: {
-      hero: "/Portfolio-V2/images/07-kapitan/hero.webp",
+      hero: "/Portfolio-V2/images/01-kapitan/hero.webp",
       gallery: [
-        "/Portfolio-V2/images/07-kapitan/gallery-1.webp",
-        "/Portfolio-V2/images/07-kapitan/gallery-2.webp",
-        "/Portfolio-V2/images/07-kapitan/gallery-3.webp",
-        "/Portfolio-V2/images/07-kapitan/gallery-4.webp",
+        "/Portfolio-V2/images/01-kapitan/gallery-1.webp",
+        "/Portfolio-V2/images/01-kapitan/gallery-2.webp",
+        "/Portfolio-V2/images/01-kapitan/gallery-3.webp",
+        "/Portfolio-V2/images/01-kapitan/gallery-4.webp",
       ],
     },
     tags: ["Web Design", "App Design", "Dashboard", "Dual-Platform"],
@@ -79,7 +79,7 @@ export const projects: CaseStudy[] = [
       "Ongoing development with real user feedback driving feature iterations",
     ],
     images: {
-      hero: "/Portfolio-V2/images/08-focus/hero.webp",
+      hero: "/Portfolio-V2/images/02-focus/hero.webp",
       gallery: [],
     },
     tags: ["React", "TypeScript", "Supabase", "Full-Stack", "UI/UX"],
@@ -146,12 +146,12 @@ export const projects: CaseStudy[] = [
       "Collaborative team effort — delivered as a group of five designers working together",
     ],
     images: {
-      hero: "/Portfolio-V2/images/09-rafiky/hero.webp",
+      hero: "/Portfolio-V2/images/04-rafiky/hero.webp",
       gallery: [
-        "/Portfolio-V2/images/09-rafiky/gallery-1.webp",
-        "/Portfolio-V2/images/09-rafiky/gallery-2.webp",
-        "/Portfolio-V2/images/09-rafiky/gallery-3.webp",
-        "/Portfolio-V2/images/09-rafiky/gallery-4.webp",
+        "/Portfolio-V2/images/04-rafiky/gallery-1.webp",
+        "/Portfolio-V2/images/04-rafiky/gallery-2.webp",
+        "/Portfolio-V2/images/04-rafiky/gallery-3.webp",
+        "/Portfolio-V2/images/04-rafiky/gallery-4.webp",
       ],
     },
     tags: ["Mobile App", "UI/UX Design", "Accessibility", "Social Impact", "RTL", "Arabic"],
@@ -189,7 +189,7 @@ export const projects: CaseStudy[] = [
       "Team adopted the app quickly because there was nothing to learn",
     ],
     images: {
-      hero: "/Portfolio-V2/images/01-task-management/hero.webp",
+      hero: "/Portfolio-V2/images/07-task-management/hero.webp",
       gallery: [],
     },
     tags: ["UI/UX Design", "Mobile App", "Figma", "Productivity"],
@@ -217,7 +217,7 @@ export const projects: CaseStudy[] = [
       "Design received positive feedback for its warm, approachable tone",
     ],
     images: {
-      hero: "/Portfolio-V2/images/02-recipe-app/hero.webp",
+      hero: "/Portfolio-V2/images/08-recipe-app/hero.webp",
       gallery: [],
     },
     tags: ["UI Design", "Mobile App", "User Experience", "Food & Drink"],
@@ -245,7 +245,7 @@ export const projects: CaseStudy[] = [
       "Clean enough to use as a starting point for client projects",
     ],
     images: {
-      hero: "/Portfolio-V2/images/05-modern-dashboard/hero.webp",
+      hero: "/Portfolio-V2/images/09-modern-dashboard/hero.webp",
       gallery: [],
     },
     tags: ["Web Design", "Dashboard", "Data Visualization", "Responsive"],
@@ -301,11 +301,11 @@ export const projects: CaseStudy[] = [
       "Client moved forward with development based on the validated prototype",
     ],
     images: {
-      hero: "/Portfolio-V2/images/04-clothes-shopping/hero.webp",
+      hero: "/Portfolio-V2/images/05-clothes-shopping/hero.webp",
       gallery: [
-        "/Portfolio-V2/images/04-clothes-shopping/gallery-1.webp",
-        "/Portfolio-V2/images/04-clothes-shopping/gallery-2.webp",
-        "/Portfolio-V2/images/04-clothes-shopping/gallery-3.webp",
+        "/Portfolio-V2/images/05-clothes-shopping/gallery-1.webp",
+        "/Portfolio-V2/images/05-clothes-shopping/gallery-2.webp",
+        "/Portfolio-V2/images/05-clothes-shopping/gallery-3.webp",
       ],
     },
     tags: ["Mobile Design", "Shopping", "UI/UX", "E-Commerce"],
