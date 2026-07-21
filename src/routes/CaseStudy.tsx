@@ -215,6 +215,36 @@ export function CaseStudy() {
           </ul>
         </motion.section>
 
+        {project.team && (
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.47 }}
+            className="mt-16"
+          >
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-gold">
+              {project.team.label || "Team"}
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {project.team.members.map((member, i) => (
+                <div
+                  key={i}
+                  className="rounded-sm border border-border p-4"
+                >
+                  <p className="text-sm font-medium text-ink dark:text-white">
+                    {member.name}
+                  </p>
+                  {member.role && (
+                    <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                      {member.role}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </motion.section>
+        )}
+
         {project.images.gallery.length > 0 && (
           <motion.section
             initial={{ opacity: 0 }}
@@ -225,12 +255,12 @@ export function CaseStudy() {
             <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-gold">
               Gallery
             </h2>
-            <div className="mt-4 columns-1 sm:columns-2 md:columns-3 gap-3 [column-fill:_balance]">
+            <div className="mt-4 grid grid-cols-3 gap-3">
               {project.images.gallery.map((img, i) => (
                 <button
                   key={i}
                   onClick={() => openLightbox(i)}
-                  className="break-inside-avoid mb-3 w-full rounded-sm overflow-hidden border border-border transition-opacity hover:opacity-80 text-left"
+                  className="w-full rounded-sm overflow-hidden border border-border transition-opacity hover:opacity-80 text-left"
                 >
                   <img
                     src={img}

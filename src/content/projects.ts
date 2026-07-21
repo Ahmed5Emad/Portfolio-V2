@@ -18,6 +18,10 @@ export interface CaseStudy {
     demo?: string;
     github?: string;
   };
+  team?: {
+    label?: string;
+    members: { name: string; role?: string }[];
+  };
 }
 
 export const projects: CaseStudy[] = [
@@ -106,7 +110,7 @@ export const projects: CaseStudy[] = [
         "/Portfolio-V2/images/03-ecommerce-platform/gallery-4.webp",
       ],
     },
-    tags: ["Web Design", "E-Commerce", "Responsive", "Front-End"],
+    tags: ["Web Design", "E-Commerce", "Responsive", "Front-End", "RTL"],
     links: {
       figma: "https://www.figma.com/design/ICviq08xhRToqHTfN0NMGe/New-clothes-project",
       demo: "https://ahmed5emad.github.io/E-commerce-Demo/index.html",
@@ -261,6 +265,52 @@ export const projects: CaseStudy[] = [
     links: {
       github: "https://github.com/Ahmed5Emad/Focus",
       demo: "https://focus-peach-eight.vercel.app",
+    },
+  },
+  {
+    slug: "rafiky",
+    title: "Rafiky — Smart App for Motor Disabilities",
+    brief: "A comprehensive Arabic (RTL) smart app designed to serve people with motor disabilities — combining accessible places, transportation, government services, community, and medical supplies in one platform.",
+    role: "Team Leader & UI/UX Designer",
+    timeline: "10 weeks",
+    context: "People with motor disabilities face daily challenges that many take for granted: few public places are wheelchair-accessible, transportation is difficult to find, government services are hard to reach, and there is no central platform to find medical supplies or connect with others. Rafiky was designed to solve all these challenges — a single companion app that gives users independence and dignity in accessing services and society. The entire interface is in Arabic (right-to-left), making it accessible to Arabic-speaking users. This was a team effort: I led the design alongside Heba Emad El-Sayed, Malak Walid Mahmoud, Nourhan Ali El-Bandary, and Habiba Yassin Tawfik.",
+    approach: "We designed Rafiky as a multi-service platform around six core pillars, each addressing a specific pain point. The Accessible Places module maps mosques, restaurants, banks, and parks that are equipped for motor disabilities. Wasselni is a dedicated booking system for accessible transportation. Government services are streamlined through the app with clear step-by-step procedures. A community space connects users for support and activities, a specialized store makes medical supplies easy to order, and a complaints channel lets users submit issues and track them directly. The entire interface is in Arabic with full right-to-left (RTL) layout — every screen was designed with both accessibility and RTL as primary constraints: large touch targets, high contrast, clear typography, and a layout that works for users with limited motor control. As the team leader, I oversaw the design direction, collaborated with the team on each module, and ensured consistency across all screens.",
+    highlights: [
+      "Accessible Places — comprehensive directory of disability-equipped locations with detailed accessibility info",
+      "Wasselni — book accessible transportation directly through the app",
+      "Government Services — simplified access to government procedures with required documents listed",
+      "Community Platform — connect with others, share support, and participate in activities",
+      "Medical Store — specialized marketplace for medical supplies and equipment",
+      "Complaints System — direct channel to submit and follow up on complaints",
+    ],
+    outcomes: [
+      "One platform addressing the full spectrum of daily needs for people with motor disabilities",
+      "Designed from the ground up for accessibility — large targets, high contrast, clear hierarchy",
+      "Community feature reduces social isolation by enabling peer support and shared activities",
+      "Collaborative team effort — delivered as a group of five designers working together",
+    ],
+    images: {
+      hero: "/Portfolio-V2/images/09-rafiky/hero.webp",
+      gallery: [
+        "/Portfolio-V2/images/09-rafiky/gallery-1.webp",
+        "/Portfolio-V2/images/09-rafiky/gallery-2.webp",
+        "/Portfolio-V2/images/09-rafiky/gallery-3.webp",
+        "/Portfolio-V2/images/09-rafiky/gallery-4.webp",
+      ],
+    },
+    tags: ["Mobile App", "UI/UX Design", "Accessibility", "Social Impact", "RTL", "Arabic"],
+    links: {
+      figma: "#",
+    },
+    team: {
+      label: "Design Team",
+      members: [
+        { name: "Ahmed Emad El-Sayed", role: "Team Leader & UI/UX Designer" },
+        { name: "Heba Emad El-Sayed", role: "UI/UX Designer" },
+        { name: "Malak Walid Mahmoud", role: "UI/UX Designer" },
+        { name: "Nourhan Ali El-Bandary", role: "UI/UX Designer" },
+        { name: "Habiba Yassin Tawfik", role: "UI/UX Designer" },
+      ],
     },
   },
 ];
