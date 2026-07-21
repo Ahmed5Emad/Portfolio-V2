@@ -46,9 +46,7 @@ export function HeroIntro() {
           transition={{ delay: 0.4, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="font-display text-6xl leading-[0.95] tracking-tight text-ink dark:text-white sm:text-7xl md:text-8xl lg:text-9xl"
         >
-          Ahmed
-          <br />
-          Emad
+          Ahmed Emad
         </motion.h1>
 
         <motion.div
