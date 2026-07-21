@@ -170,6 +170,66 @@ export const projects: CaseStudy[] = [
     },
   },
   {
+    slug: "clothes-shopping",
+    title: "Clothes Shopping App",
+    brief: "A modern mobile shopping experience designed to make fashion discovery feel personal and effortless.",
+    role: "UI/UX Designer",
+    timeline: "4 days",
+    context: "Shopping apps often feel like catalogs — a grid of products with little personality. The client wanted an app that felt like a personal stylist, not a warehouse. The challenge was creating discovery flows that felt curated and personalized without complex recommendation algorithms.",
+    approach: "I organized the product catalog around 'edit' and 'mood' rather than traditional hierarchical categories. The home feed uses editorial-style product groupings (' Weekend Casual', 'Office Edit', 'New Drops'). The search experience combines visual (image) and text-based filtering. Product detail pages prioritize high-res imagery with gesture-based navigation (swipe through looks, pinch to zoom fabric details).",
+    highlights: [
+      "Editorial home feed curated by mood and occasion, not just category",
+      "Visual search and multi-faceted filtering for fast product discovery",
+      "Gesture-driven product detail view with swipeable lookbook",
+      "Wishlist with stock alerts and price-drop notifications",
+    ],
+    outcomes: [
+      "Design concept validated through usability testing with 12 target users",
+      "Curated discovery flow rated 'more enjoyable' than grid-based competitors in preference tests",
+      "Client moved forward with development based on the validated prototype",
+    ],
+    images: {
+      hero: "/Portfolio-V2/images/05-clothes-shopping/hero.webp",
+      gallery: [
+        "/Portfolio-V2/images/05-clothes-shopping/gallery-1.webp",
+        "/Portfolio-V2/images/05-clothes-shopping/gallery-2.webp",
+        "/Portfolio-V2/images/05-clothes-shopping/gallery-3.webp",
+      ],
+    },
+    tags: ["Mobile Design", "Shopping", "UI/UX", "E-Commerce"],
+    links: {
+      figma: "https://www.figma.com/design/0weRLxvbAGBz99nSUfhk0nC/Clothes-Shop",
+    },
+  },
+  {
+    slug: "coffee-landing",
+    title: "Coffee Business Landing Page",
+    brief: "A single landing page concept for a coffee shop — made to show the client what I can do. I didn't take the job, so it's unfinished.",
+    role: "UI/UX Designer",
+    timeline: "2–5 hours",
+    context: "Someone asked me to do a landing page for a coffee shop — just to show off my work or the concept to the client. It was only one page, made as a pitch piece. I didn't end up taking the job, so it's not a full project — just a single landing page showing the direction.",
+    approach: "I kept it focused on the one page: warm, editorial feel with rich typography and earthy tones. The kind of landing page that makes you want to visit the shop. Nothing more than what was needed to sell the concept.",
+    highlights: [
+      "Single landing page designed as a pitch piece",
+      "Warm editorial typography and earthy color palette",
+      "Coffee beans animation that adds personality to the page",
+      "Custom micro-animations throughout that I'm proud of",
+      "Designed to show the creative direction, not a finished product",
+    ],
+    outcomes: [
+      "Showed the client the creative direction — my job was done there",
+      "Didn't take the project, but the page demonstrates the approach",
+    ],
+    images: {
+      hero: "/Portfolio-V2/images/06-coffee-landing/hero.webp",
+      gallery: ["/Portfolio-V2/images/06-coffee-landing/gallery-1.webp"],
+    },
+    tags: ["Web Design", "Landing Page", "Animation", "Editorial"],
+    links: {
+      figma: "https://www.figma.com/proto/NXk7gIgLGGarJlos8EXxxA/Coffee",
+    },
+  },
+  {
     slug: "task-management",
     title: "Task & Project Management App",
     brief: "A simple mobile task management app for a small team — task creation, assignment, and notifications without the complexity of enterprise tools.",
@@ -251,66 +311,6 @@ export const projects: CaseStudy[] = [
     tags: ["Web Design", "Dashboard", "Data Visualization", "Responsive"],
     links: {
       figma: "https://www.figma.com/design/8V28mHXhiAvufxmv5oO83t/Dashboards",
-    },
-  },
-  {
-    slug: "coffee-landing",
-    title: "Coffee Business Landing Page",
-    brief: "A single landing page concept for a coffee shop — made to show the client what I can do. I didn't take the job, so it's unfinished.",
-    role: "UI/UX Designer",
-    timeline: "2–5 hours",
-    context: "Someone asked me to do a landing page for a coffee shop — just to show off my work or the concept to the client. It was only one page, made as a pitch piece. I didn't end up taking the job, so it's not a full project — just a single landing page showing the direction.",
-    approach: "I kept it focused on the one page: warm, editorial feel with rich typography and earthy tones. The kind of landing page that makes you want to visit the shop. Nothing more than what was needed to sell the concept.",
-    highlights: [
-      "Single landing page designed as a pitch piece",
-      "Warm editorial typography and earthy color palette",
-      "Coffee beans animation that adds personality to the page",
-      "Custom micro-animations throughout that I'm proud of",
-      "Designed to show the creative direction, not a finished product",
-    ],
-    outcomes: [
-      "Showed the client the creative direction — my job was done there",
-      "Didn't take the project, but the page demonstrates the approach",
-    ],
-    images: {
-      hero: "/Portfolio-V2/images/06-coffee-landing/hero.webp",
-      gallery: ["/Portfolio-V2/images/06-coffee-landing/gallery-1.webp"],
-    },
-    tags: ["Web Design", "Landing Page", "Animation", "Editorial"],
-    links: {
-      figma: "https://www.figma.com/proto/NXk7gIgLGGarJlos8EXxxA/Coffee",
-    },
-  },
-  {
-    slug: "clothes-shopping",
-    title: "Clothes Shopping App",
-    brief: "A modern mobile shopping experience designed to make fashion discovery feel personal and effortless.",
-    role: "UI/UX Designer",
-    timeline: "4 days",
-    context: "Shopping apps often feel like catalogs — a grid of products with little personality. The client wanted an app that felt like a personal stylist, not a warehouse. The challenge was creating discovery flows that felt curated and personalized without complex recommendation algorithms.",
-    approach: "I organized the product catalog around 'edit' and 'mood' rather than traditional hierarchical categories. The home feed uses editorial-style product groupings (' Weekend Casual', 'Office Edit', 'New Drops'). The search experience combines visual (image) and text-based filtering. Product detail pages prioritize high-res imagery with gesture-based navigation (swipe through looks, pinch to zoom fabric details).",
-    highlights: [
-      "Editorial home feed curated by mood and occasion, not just category",
-      "Visual search and multi-faceted filtering for fast product discovery",
-      "Gesture-driven product detail view with swipeable lookbook",
-      "Wishlist with stock alerts and price-drop notifications",
-    ],
-    outcomes: [
-      "Design concept validated through usability testing with 12 target users",
-      "Curated discovery flow rated 'more enjoyable' than grid-based competitors in preference tests",
-      "Client moved forward with development based on the validated prototype",
-    ],
-    images: {
-      hero: "/Portfolio-V2/images/05-clothes-shopping/hero.webp",
-      gallery: [
-        "/Portfolio-V2/images/05-clothes-shopping/gallery-1.webp",
-        "/Portfolio-V2/images/05-clothes-shopping/gallery-2.webp",
-        "/Portfolio-V2/images/05-clothes-shopping/gallery-3.webp",
-      ],
-    },
-    tags: ["Mobile Design", "Shopping", "UI/UX", "E-Commerce"],
-    links: {
-      figma: "https://www.figma.com/design/0weRLxvbAGBz99nSUfhk0nC/Clothes-Shop",
     },
   },
 ];
