@@ -1,89 +1,80 @@
-import { Star, Quote } from 'lucide-react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
+import { motion } from "motion/react";
 
-interface Testimonial {
-  name: string;
-  role: string;
-  company: string;
-  content: string;
-  rating: number;
-}
-
-const UPWORK_URL = "https://www.upwork.com/freelancers/~01460a8313a82b3237?mp_source=share";
+const testimonials = [
+  {
+    name: "Abdullah Albar",
+    role: "CEO & Founder, Kaptain",
+    content:
+      "Great experience working with him. He redesigned the 2 UIs and built a clean, well-structured admin panel. Very easy to communicate with, understood the product well, and delivered high-quality work.",
+    url: "https://www.upwork.com/freelancers/~01460a8313a82b3237",
+  },
+  {
+    name: "Oxana Demchenko",
+    content:
+      "I enjoyed working with Ahmed and will likely have additional jobs for him in the future.",
+    url: "https://www.upwork.com/freelancers/~01460a8313a82b3237",
+  },
+  {
+    name: "Ted Stevenson",
+    role: "Senior User Researcher, Amazon",
+    content:
+      "Good advice in user research interview for online course/marketing materials.",
+    url: "https://www.upwork.com/freelancers/~01460a8313a82b3237",
+  },
+];
 
 export function TestimonialsSection() {
-  const testimonials: Testimonial[] = [
-    {
-      name: "Abdullah Albar",
-      role: "CEO & Founder",
-      company: "Kaptain",
-      content: "Great experience with him. He redesigned the 2 UI's and built a clean, well-structured admin panel. Very easy to communicate with, understood the product well, and delivered high-quality work. Would definitely recommend.",
-      rating: 5,
-    },
-    {
-      name: "Oxana Demchenko",
-      role: "",
-      company: "",
-      content: "I enjoyed working with Ahmed and will likely have additional jobs for him in the future.",
-      rating: 5,
-    },
-    {
-      name: "Ted Stevenson",
-      role: "Senior User Researcher",
-      company: "Amazon",
-      content: "Good advice in user research interview for online course/marketing materials.",
-      rating: 5,
-    },
-  ];
-
-  const { ref, isVisible } = useScrollReveal();
-
   return (
-    <section id="testimonials" ref={ref}>
-      <div className="text-center px-6 pt-28 pb-14">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 mb-4">
-          <Quote className="w-4 h-4" />
-          <span className="text-sm">What Clients Say</span>
+    <section id="testimonials" className="border-t border-border px-6 py-24">
+      <div className="mx-auto max-w-5xl">
+        <div className="mb-16">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-gold">
+            Testimonials
+          </span>
+          <h2 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">
+            What Clients Say
+          </h2>
         </div>
-        <h2 className="text-orange-500 text-2xl">Testimonials</h2>
-      </div>
 
-      <div className={`max-w-7xl mx-auto px-6 pb-24 transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}>
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
-          {testimonials.map((testimonial, index) => (
-            <a
-              key={index}
-              href={UPWORK_URL}
+        <div className="grid gap-8 md:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <motion.a
+              key={i}
+              href={t.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="block break-inside-avoid mb-4 group rounded-2xl overflow-hidden bg-white/80 dark:bg-[#1e1e1e]/80 backdrop-blur-lg border border-gray-200 dark:border-white/10 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group block rounded-sm border border-border p-6 transition-colors hover:border-gold/30"
             >
-              <div className="p-5 space-y-3">
-                <div className="flex gap-1">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-orange-500 text-orange-500" />
-                  ))}
-                </div>
-
-                <p className="text-gray-600 dark:text-white/60 text-sm leading-relaxed">
-                  "{testimonial.content}"
-                </p>
-
-                <div className="flex items-center gap-3 pt-3 border-t border-gray-200 dark:border-white/10">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white text-sm font-bold shadow-sm shrink-0">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-gray-900 dark:text-white text-sm font-semibold group-hover:text-orange-500 transition-colors truncate">{testimonial.name}</p>
-                    {testimonial.role && (
-                      <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5 truncate">{testimonial.role}{testimonial.company ? ` at ${testimonial.company}` : ''}</p>
-                    )}
-                  </div>
-                </div>
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, j) => (
+                  <svg
+                    key={j}
+                    className="h-3 w-3 text-gold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
               </div>
-            </a>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                &ldquo;{t.content}&rdquo;
+              </p>
+              <div className="mt-4 pt-4 border-t border-border">
+                <p className="text-sm font-medium text-foreground group-hover:text-gold transition-colors">
+                  {t.name}
+                </p>
+                {t.role && (
+                  <p className="mt-0.5 text-xs text-muted-foreground">
+                    {t.role}
+                  </p>
+                )}
+              </div>
+            </motion.a>
           ))}
         </div>
       </div>

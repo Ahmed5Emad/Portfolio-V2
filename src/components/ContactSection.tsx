@@ -1,89 +1,86 @@
-import { Mail, Phone, Linkedin, Send } from 'lucide-react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
+import { motion } from "motion/react";
+import { Mail, Phone, Linkedin } from "lucide-react";
+
+const contacts = [
+  {
+    icon: <Mail className="h-5 w-5" />,
+    label: "Email",
+    value: "ahmed2077emad@gmail.com",
+    href: "mailto:ahmed2077emad@gmail.com",
+  },
+  {
+    icon: <Phone className="h-5 w-5" />,
+    label: "Phone",
+    value: "+20 102 160 1622",
+    href: "tel:+201021601622",
+  },
+  {
+    icon: <Linkedin className="h-5 w-5" />,
+    label: "LinkedIn",
+    value: "Ahmed Emad",
+    href: "https://www.linkedin.com/in/ahmed5emad",
+  },
+];
 
 export function ContactSection() {
-  const { ref, isVisible } = useScrollReveal();
-  const contacts = [
-    {
-      icon: <Mail className="w-8 h-8" />,
-      href: 'mailto:ahmed2077emad@gmail.com',
-      label: 'Email',
-      value: 'ahmed2077emad@gmail.com',
-      color: 'from-blue-500 to-cyan-500',
-    },
-    {
-      icon: <Phone className="w-8 h-8" />,
-      href: 'tel:+201021601622',
-      label: 'Phone',
-      value: '+20 102 160 1622',
-      color: 'from-green-500 to-emerald-500',
-    },
-    {
-      icon: <Linkedin className="w-8 h-8" />,
-      href: 'https://www.linkedin.com/in/ahmed5emad',
-      label: 'LinkedIn',
-      value: 'Ahmed Emad',
-      color: 'from-blue-600 to-blue-800',
-    },
-  ];
-
   return (
-    <section id="contact" className="min-h-screen flex items-center justify-center px-6 py-20" ref={ref}>
-      <div className={`max-w-4xl w-full transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}>
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 mb-4">
-            <Send className="w-4 h-4" />
-            <span className="text-sm">Get In Touch</span>
-          </div>
-          <h2 className="text-orange-500 mb-4 text-2xl">Contact</h2>
-          <p className="text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
-            If you have a project in mind or would like to discuss how I can help you achieve your goals, please don't hesitate to contact me. I'm always excited to explore new opportunities and collaborate with like-minded individuals.
+    <section id="contact" className="border-t border-border px-6 py-48">
+      <div className="mx-auto max-w-5xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-gold">
+            Contact
+          </span>
+          <h2 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">
+            Let&apos;s Work Together
+          </h2>
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
+            Have a project in mind? I&apos;m always interested in hearing about
+            new opportunities.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {contacts.map((contact, index) => (
-            <a
-              key={index}
-              href={contact.href}
-              target={contact.label === 'LinkedIn' ? '_blank' : undefined}
-              rel={contact.label === 'LinkedIn' ? 'noopener noreferrer' : undefined}
-              className="group relative"
+        <div className="mt-12 grid gap-4 sm:grid-cols-3">
+          {contacts.map((c, i) => (
+            <motion.a
+              key={c.label}
+              href={c.href}
+              target={c.label === "LinkedIn" ? "_blank" : undefined}
+              rel={c.label === "LinkedIn" ? "noopener noreferrer" : undefined}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="group flex flex-col items-center gap-3 rounded-sm border border-border p-6 transition-colors hover:border-gold/30"
             >
-              <div className={`absolute -inset-1 bg-gradient-to-r ${contact.color} rounded-2xl blur opacity-0 group-hover:opacity-25 transition duration-1000`}></div>
-              
-              <div className="relative flex flex-col items-center gap-4 p-6 rounded-2xl bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-white/10 group-hover:border-orange-500/50 transition-all duration-300 shadow-sm">
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${contact.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform`}>
-                  {contact.icon}
-                </div>
-                <div className="text-center">
-                  <p className="text-gray-600 dark:text-white/70 text-sm mb-1">{contact.label}</p>
-                  <p className="text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors text-sm">{contact.value}</p>
-                </div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-gold transition-colors group-hover:bg-gold group-hover:text-ink">
+                {c.icon}
               </div>
-            </a>
+              <div>
+                <p className="text-xs text-muted-foreground">{c.label}</p>
+                <p className="text-sm text-foreground group-hover:text-gold transition-colors">
+                  {c.value}
+                </p>
+              </div>
+            </motion.a>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <a
-            href="mailto:ahmed2077emad@gmail.com"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-xl hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105"
-          >
-            <Mail className="w-5 h-5" />
-            Send me an email
-          </a>
-        </div>
-
-        {/* Footer */}
-        <div className="mt-16 pt-8 border-t border-gray-200 dark:border-white/10 text-center">
-          <p className="text-gray-500 dark:text-white/50 text-sm">
-            © {new Date().getFullYear()} Ahmed Emad. All rights reserved.
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-16 border-t border-border pt-8"
+        >
+          <p className="font-mono text-xs text-muted-foreground">
+            &copy; {new Date().getFullYear()} Ahmed Emad. All rights reserved.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

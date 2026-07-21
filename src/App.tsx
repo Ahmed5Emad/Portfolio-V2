@@ -1,61 +1,58 @@
-import { useState, useEffect } from 'react';
-import { Navbar } from './components/Navbar';
-import { AboutSection } from './components/AboutSection';
-import { StatsSection } from './components/StatsSection';
-import { ExperienceSection } from './components/ExperienceSection';
-import { SkillsSection } from './components/SkillsSection';
-import { ProcessSection } from './components/ProcessSection';
-import { ProjectsSection } from './components/ProjectsSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
-import { ContactSection } from './components/ContactSection';
-import { ScrollToTop } from './components/ScrollToTop';
-import { FloatingParticles } from './components/FloatingParticles';
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { Home } from "./routes/Home";
+import { CaseStudy } from "./routes/CaseStudy";
+import { Navbar } from "./components/Navbar";
+import { ScrollToTop } from "./components/ScrollToTop";
+import { CustomCursor } from "./components/CustomCursor";
+import { useState, useEffect } from "react";
 
 export default function App() {
   const [isDark, setIsDark] = useState(true);
+  const location = useLocation();
+  const prefersReduced = useReducedMotion();
 
   useEffect(() => {
-    if (window.location.hash) history.replaceState(null, '', window.location.pathname);
-    window.scrollTo(0, 0);
-    history.scrollRestoration = 'manual';
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
       setIsDark(false);
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     } else {
       setIsDark(true);
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     }
   }, []);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
     if (!isDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#121212] text-gray-900 dark:text-white relative overflow-hidden transition-colors">
-      <FloatingParticles />
-      <div className="relative z-10">
-        <Navbar isDark={isDark} toggleTheme={toggleTheme} />
-        <main>
-          <AboutSection />
-          <StatsSection />
-          <ExperienceSection />
-          <SkillsSection />
-          <ProcessSection />
-          <ProjectsSection />
-          <TestimonialsSection />
-          <ContactSection />
-        </main>
-        <ScrollToTop />
-      </div>
+    <div className="min-h-screen bg-background text-foreground">
+      {prefersReduced ? null : <CustomCursor />}
+      <Navbar isDark={isDark} toggleTheme={toggleTheme} />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location.pathname}
+          initial={prefersReduced ? {} : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={prefersReduced ? {} : { opacity: 0, y: -12 }}
+          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Routes location={location}>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects/:slug" element={<CaseStudy />} />
+          </Routes>
+        </motion.div>
+      </AnimatePresence>
+      <ScrollToTop />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, ArrowLeft } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 
 interface NavbarProps {
@@ -7,158 +8,190 @@ interface NavbarProps {
   toggleTheme: () => void;
 }
 
+const sections = [
+  { id: "experience", label: "Experience" },
+  { id: "capabilities", label: "Capabilities" },
+  { id: "projects", label: "Work" },
+  { id: "contact", label: "Contact" },
+];
+
 export function Navbar({ isDark, toggleTheme }: NavbarProps) {
-  const [activeSection, setActiveSection] = useState("about");
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["about", "skills", "experience", "projects", "contact"];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isHome) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length > 0) {
+          setActive(visible[0].target.id);
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    sections.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, [isHome]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const scrollTo = (id: string) => {
+    const doScroll = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    };
+    if (!isHome) {
+      navigate("/");
+      setTimeout(doScroll, 100);
+    } else {
+      doScroll();
     }
     setMobileOpen(false);
   };
 
-  const navItems = [
-    { id: "about", label: "About" },
-    { id: "experience", label: "Experience" },
-    { id: "skills", label: "Skills" },
-    { id: "projects", label: "Projects" },
-    { id: "contact", label: "Contact" },
-  ];
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    setMobileOpen(false);
-  };
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#1e1e1e]/80 backdrop-blur-lg border-b border-gray-200 dark:border-white/10 transition-colors">
-      <div className="max-w-6xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-background/80 backdrop-blur-md border-b border-border"
+            : ""
+        }`}
+      >
+        <div className="mx-auto flex items-center justify-between px-6 py-4 max-w-6xl">
           <button
-            onClick={scrollToTop}
-            className="text-gray-900 dark:text-white hover:text-orange-500 transition-colors group"
+            onClick={() => {
+              if (isHome) {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              } else {
+                navigate("/");
+              }
+              setMobileOpen(false);
+            }}
+            className="font-display text-xl font-semibold tracking-tight text-ink dark:text-white hover:text-gold transition-colors"
           >
-            <span className="text-xl">
-              <span className="text-orange-500 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
-                A
-              </span>
-              <span className="group-hover:text-orange-500 transition-colors">
-                E
-              </span>
-            </span>
+            AE
           </button>
 
-          <div className="flex items-center gap-4">
-            <ul className="hidden md:flex gap-8">
-              {navItems.map((item) => (
-                <li key={item.id}>
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className={`relative transition-colors duration-300 hover:text-orange-500 ${
-                      activeSection === item.id
-                        ? "text-orange-500"
-                        : "text-gray-900 dark:text-white"
-                    }`}
-                  >
-                    {item.label}
-                    {activeSection === item.id && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-orange-500" />
-                    )}
-                  </button>
-                </li>
-              ))}
-            </ul>
+          <div className="flex items-center gap-8">
+            {isHome ? (
+              <ul className="hidden md:flex gap-8">
+                {sections.map((s) => (
+                  <li key={s.id}>
+                    <button
+                      onClick={() => scrollTo(s.id)}
+                      className={`font-mono text-sm font-semibold uppercase tracking-widest transition-colors hover:text-gold ${
+                        active === s.id
+                          ? "text-gold"
+                          : "text-ink/70 dark:text-white/70"
+                      }`}
+                    >
+                      {s.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <button
+                onClick={() => navigate("/")}
+                className="hidden md:inline-flex items-center gap-1.5 font-mono text-sm font-semibold uppercase tracking-widest text-ink/70 dark:text-white/70 hover:text-gold transition-colors"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Back
+              </button>
+            )}
 
             <ThemeToggle isDark={isDark} toggle={toggleTheme} />
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 text-gray-900 dark:text-white hover:text-orange-500 transition-colors"
+              className="md:hidden p-1.5 text-ink dark:text-white hover:text-gold transition-colors"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-md transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-40 bg-ink/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setMobileOpen(false)}
       />
 
-      {/* Mobile menu panel */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-72 bg-white dark:bg-[#1e1e1e] border-l border-gray-200 dark:border-white/10 shadow-2xl transition-transform duration-300 md:hidden ${
+        className={`fixed top-0 right-0 z-50 h-full w-64 bg-background border-l border-border shadow-2xl transition-transform duration-300 md:hidden ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-white/10">
-          <button onClick={scrollToTop} className="text-xl font-bold text-orange-500">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-border">
+          <button onClick={() => { navigate("/"); setMobileOpen(false); }} className="font-display text-lg text-gold">
             AE
           </button>
           <button
             onClick={() => setMobileOpen(false)}
-            className="p-2 text-gray-900 dark:text-white hover:text-orange-500 transition-colors"
+            className="p-1 text-ink dark:text-white hover:text-gold transition-colors"
             aria-label="Close menu"
           >
-            <X className="w-5 h-5" />
+            <X className="h-5 w-5" />
           </button>
         </div>
 
-        <ul className="flex flex-col gap-2 p-6">
-          {navItems.map((item) => (
-            <li key={item.id}>
+        <ul className="flex flex-col gap-1 p-6">
+          {isHome ? (
+            sections.map((s) => (
+              <li key={s.id}>
+                <button
+                  onClick={() => scrollTo(s.id)}
+                  className={`w-full text-left px-4 py-3 rounded-sm font-mono text-sm font-semibold uppercase tracking-widest transition-all duration-200 ${
+                    active === s.id
+                      ? "text-gold bg-gold/5"
+                      : "text-ink/60 dark:text-white/60 hover:text-gold hover:bg-muted"
+                  }`}
+                >
+                  {s.label}
+                </button>
+              </li>
+            ))
+          ) : (
+            <li>
               <button
-                onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-300 ${
-                  activeSection === item.id
-                    ? "bg-orange-500/10 text-orange-500 font-bold"
-                    : "text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-white/5"
-                }`}
+                onClick={() => { navigate("/"); setMobileOpen(false); }}
+                className="w-full text-left px-4 py-3 rounded-sm font-mono text-sm font-semibold uppercase tracking-widest text-ink/60 dark:text-white/60 hover:text-gold"
               >
-                {item.label}
+                <span className="inline-flex items-center gap-2">
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to home
+                </span>
               </button>
             </li>
-          ))}
+          )}
         </ul>
       </div>
-    </nav>
+    </>
   );
 }
