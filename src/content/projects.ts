@@ -59,6 +59,7 @@ export const projects: CaseStudy[] = [
         "/Portfolio-V2/images/01-kapitan/gallery-9.webp",
         "/Portfolio-V2/images/01-kapitan/gallery-10.webp",
         "/Portfolio-V2/images/01-kapitan/gallery-11.webp",
+        "/Portfolio-V2/images/01-kapitan/gallery-12.webp",
       ],
     },
     tags: ["Web Design", "App Design", "Dashboard", "Dual-Platform"],
