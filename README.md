@@ -42,8 +42,3 @@ npm run build
 
 Output goes to the `build/` directory for GitHub Pages deployment.
 
-## Connect
-
-- [GitHub](https://github.com/ahmed5emad)
-- [LinkedIn](https://www.linkedin.com/in/ahmed5emad)
-- [Email](mailto:ahmed2077emad@gmail.com)
