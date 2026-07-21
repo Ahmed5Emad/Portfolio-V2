@@ -255,7 +255,7 @@ export function CaseStudy() {
             <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-gold">
               Gallery
             </h2>
-            <div className={`mt-4 gap-3 ${project.slug === "rafiky" ? "grid grid-cols-3" : "columns-3"}`}>
+            <div className={`mt-4 gap-3 ${project.slug === "rafiky" ? "grid grid-cols-2 sm:grid-cols-3" : "columns-1 sm:columns-2 lg:columns-3"}`}>
               {project.images.gallery.map((img, i) => (
                 <button
                   key={i}
